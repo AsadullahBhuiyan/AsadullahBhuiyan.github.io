@@ -5,7 +5,7 @@
 - Backup tag: `before-redesign-2026-09-18`.
 - Design reference: https://github.com/aadeliee22/aadeliee22.github.io at `ac46e0b9235f4d4e41e9b992482156ec8443a838`.
 - Theme SCSS and the starting custom stylesheet are copied from that exact reference. The layouts/navigation are adapted for the new content and accessible, script-free navigation. The vendored files are the build source; no floating remote theme is used.
-- Original MIT license retained. Visible footer credits Jekyll, Minimal Mistakes, and Hyejin Kim.
+- Original MIT license retained. Visible footer credits Jekyll and Minimal Mistakes. The owner requested removal of the visible Hyejin Kim design-adaptation credit after publication; source provenance remains here.
 - The extra upstream 4.26.2 checkout used during inspection is not a build dependency and supplies no separately imported files.
 
 ## Content sources
@@ -28,6 +28,7 @@
 - APS event names/titles follow the verified official programs. No public slide deck was present in the existing repository: its three slide PDFs were Academic Pages samples. Private presentation files were not published. Talks link to official programs and relevant research instead.
 - Do not copy the general CV's older research-interest wording over the newer learning-theory wording. Preserve the supplied PDF itself without editing its contents.
 - The homepage bio now uses the user's supplied personal introduction: a short greeting, research approach, and interests in AI alignment and interpretability. Repeated interests and the redundant research-area heading were removed. Scholar, GitHub, and LinkedIn are grouped below the main homepage buttons, using the same URLs as the supplied CV.
+- Email joins the homepage profile links, replacing the standalone Contact section. The shared homepage/footer link include uses locally bundled Bootstrap Icons v1.13.1 (GitHub, LinkedIn, mortarboard, envelope), with visible text labels and decorative SVGs hidden from assistive technology.
 
 ## Legacy routes
 

@@ -11,11 +11,9 @@ excerpt: "Theoretical physics at Cornell: the physics of learning, monitored qua
     <p class="hero-lead hero-greeting">Hi there! I’m Asad.</p>
     <p class="hero-note">I’m a PhD candidate in theoretical physics at Cornell, working on high-dimensional stochastic systems in quantum many-body physics and machine learning. I combine analytical theory and Python simulations to understand how complex behavior emerges from randomness, interactions, and learning.</p>
     <p class="hero-note">I’m drawn to problems where the right description isn’t obvious: finding a useful way to think about a system, testing it, and turning messy behavior into a clear mechanism. I’m increasingly interested in AI alignment and interpretability, and how a physicist’s toolkit can help. I value clear reasoning, intellectual honesty, and collaboration—and I’m always happy to talk across fields.</p>
-    <div class="hero-actions"><a class="research-button research-button--primary" href="{{ '/research/' | relative_url }}">Explore my research</a><a class="research-button" href="{{ site.cv | relative_url }}">Curriculum vitae <span class="visually-hidden">(PDF)</span></a></div>
-    <nav class="hero-profiles" aria-label="Professional profiles">
-      <a href="{{ site.scholar }}">Google Scholar</a>
-      <a href="{{ site.github }}">GitHub</a>
-      <a href="{{ site.linkedin }}">LinkedIn</a>
+    <div class="hero-actions"><a class="research-button research-button--primary" href="{{ '/research/' | relative_url }}">Explore my research</a><a class="research-button" href="{% include cv-url.html %}">Curriculum vitae <span class="visually-hidden">(PDF)</span></a></div>
+    <nav class="hero-profiles profile-links" aria-label="Professional profiles and email">
+      {% include profile-links.html %}
     </nav>
   </div>
   <img class="hero-portrait" src="{{ '/assets/images/headshot.jpg' | relative_url }}" alt="Asadullah Bhuiyan" width="1984" height="1927" fetchpriority="high">
@@ -33,4 +31,3 @@ excerpt: "Theoretical physics at Cornell: the physics of learning, monitored qua
   <p class="all-work-link"><a class="inline-arrow" href="{{ '/publications/' | relative_url }}">View all publications and preprints →</a></p>
 </section>
 <section class="current-direction" aria-labelledby="current-work"><p class="section-label">Ongoing work · Manuscript in preparation</p><h2 id="current-work">Critical boundaries in adaptive quantum circuits</h2><p>I am investigating the critical and chiral properties of topological domain-wall modes prepared by measurement and feedback, connecting entanglement and charge-fluctuation diagnostics to the structure of boundary-state ensembles.</p><a class="inline-arrow" href="{{ '/research/#ongoing' | relative_url }}">About the project →</a></section>
-<section class="contact-strip" aria-label="Contact"><p class="section-label">Contact</p><div class="contact-links"><a href="mailto:{{ site.email }}">{{ site.email }}</a></div></section>

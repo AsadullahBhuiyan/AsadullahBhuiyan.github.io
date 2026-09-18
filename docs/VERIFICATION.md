@@ -37,3 +37,4 @@ Publication follows the user's review. Preserve the backup tag and merge the rev
 - Replaced the CV with the supplied three-page `CV_Asad_Stat_Phys_Learning.pdf`, preserving the existing URL and exact PDF bytes. SHA-256: `d61983aa0e5ae383771e366038384c95c98f18fe510f45f9c52f48212eb5a065`.
 - Inspected all three PDF pages. Homepage profile links match the destinations embedded in the CV.
 - Replaced the repeated homepage research-interest summaries with a short personal bio based on the user's wording, followed by “Selected research.”
+- Follow-up: verified the reattached CV and the live download are byte-identical. All CV buttons now include a build timestamp to request fresh downloads while preserving the stable PDF path. Added local SVG profile icons and email beside LinkedIn; removed the standalone Contact section and visible design-adaptation credit at the user's request.

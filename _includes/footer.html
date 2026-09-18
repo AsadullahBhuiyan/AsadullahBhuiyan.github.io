@@ -1,7 +1,7 @@
 <footer id="footer" class="page__footer site-footer">
   <div class="footer-inner">
     <p class="footer-name">Asadullah Bhuiyan <span>Cornell University</span></p>
-    <nav aria-label="Profile links"><a href="{{ site.scholar }}">Google Scholar</a><a href="{{ site.github }}">GitHub</a><a href="{{ site.linkedin }}">LinkedIn</a><a href="mailto:{{ site.email }}">Email</a></nav>
-    <p class="footer-credit">© {{ 'now' | date: '%Y' }} {{ site.name }}. Built with <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://mmistakes.github.io/minimal-mistakes/">Minimal Mistakes</a>. Design adapted from <a href="https://aadeliee22.github.io/">Hyejin Kim</a>.</p>
+    <nav class="profile-links" aria-label="Profile links">{% include profile-links.html %}</nav>
+    <p class="footer-credit">© {{ 'now' | date: '%Y' }} {{ site.name }}. Built with <a href="https://jekyllrb.com/">Jekyll</a> and <a href="https://mmistakes.github.io/minimal-mistakes/">Minimal Mistakes</a>.</p>
   </div>
 </footer>

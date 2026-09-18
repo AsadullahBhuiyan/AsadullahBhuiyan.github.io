@@ -36,8 +36,11 @@ The theme styles are vendored from the reference repository at a recorded commit
 | Figure images, captions, and source links | `assets/images/research/` and `_data/figures.json` |
 | Portrait | Replace `assets/images/headshot.jpg`; also update `images/Headshot.jpg` to preserve the old URL |
 | Name, description, and profile links | `_config.yml` |
+| Profile icons and link labels | `_includes/profile-links.html` and `_includes/icons/` |
 | Navigation | `_data/navigation.yml` |
 | Visual styling | `assets/css/main.scss` |
+
+CV buttons automatically include a build timestamp so that updated PDFs are requested fresh instead of reusing a previously cached download. The underlying PDF address remains stable.
 
 The publication data are JSON; preserve valid quoting and commas. Author strings allow simple `<strong>` markup for the site owner's name. Update statuses consistently on the homepage, research page, and publications data. Research figures have display and larger versions; maintain their aspect ratios and retain readable axes and labels. The figure link opens the larger version directly.
 
@@ -55,4 +58,4 @@ The annotated record in `docs/PROVENANCE.md` identifies the baseline and referen
 
 Existing `/publications/`, `/talks/`, and `/cv/` routes remain. `/resume`, `/resume/`, and `/cv-json/` lead to the CV page; `/teaching/` leads to About; `/year-archive/` leads to Research; `/talkmap.html` leads to Talks. The old portrait URL remains available. Removed example posts, fake CV entries, and sample paper/slide PDFs were template content, not the owner's research.
 
-The design is adapted from Hyejin Kim's site and the MIT-licensed Minimal Mistakes theme by Michael Rose and contributors. Preserve the license and attribution. Research figures belong to their respective paper authors; links identify the source papers. This site contains no comments, analytics, contact-form backend, or externally loaded JavaScript.
+The design is adapted from Hyejin Kim's site and the MIT-licensed Minimal Mistakes theme by Michael Rose and contributors. Source provenance is retained in this repository; the visible design-adaptation credit was removed at the owner's request. Preserve the theme license. Profile icons come from Bootstrap Icons v1.13.1; their MIT license is included in `_includes/profile-links.html`. Research figures belong to their respective paper authors; links identify the source papers. This site contains no comments, analytics, contact-form backend, or externally loaded JavaScript.

@@ -3,7 +3,7 @@
     <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title }}<span class="site-subtitle">{{ site.subtitle }}</span></a>
     <nav id="site-nav" aria-label="Primary navigation">
       <ul class="site-nav-links">
-        {% for item in site.data.navigation.main %}<li><a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}{% if item.title == 'CV' %}<span class="visually-hidden"> (PDF)</span>{% endif %}</a></li>{% endfor %}
+        {% for item in site.data.navigation.main %}<li><a href="{% if item.url == site.cv %}{% include cv-url.html %}{% else %}{{ item.url | relative_url }}{% endif %}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}{% if item.title == 'CV' %}<span class="visually-hidden"> (PDF)</span>{% endif %}</a></li>{% endfor %}
       </ul>
     </nav>
   </div>
