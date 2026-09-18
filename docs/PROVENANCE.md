@@ -16,6 +16,7 @@
 - Flagship preprints already supplied in the workspace: arXiv:2606.11319v1 and arXiv:2507.13437v3. Figure extraction coordinates and PDF hashes are in `figure-provenance.json`.
 - The research-profile and talk-evidence records corroborate contribution attribution and event dates. These private working documents are not copied into the site.
 - Headshot explicitly provided by the user on September 18. Used without generative alterations; CSS controls display framing.
+- The homepage uses the user's subsequently supplied hiking photo, `IMG_4998.heic`, converted to JPEG. Camera/location metadata was removed while preserving display orientation and JPEG image data. The full photo is displayed without cropping, as requested; About and the existing sharing image retain the original headshot.
 
 ## Editorial decisions
 

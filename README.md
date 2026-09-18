@@ -34,7 +34,8 @@ The theme styles are vendored from the reference repository at a recorded commit
 | Biography, education, teaching, and outreach | `_pages/about.html` |
 | CV download | Replace `assets/files/Asadullah_Bhuiyan_CV.pdf`, keeping its name |
 | Figure images, captions, and source links | `assets/images/research/` and `_data/figures.json` |
-| Portrait | Replace `assets/images/headshot.jpg`; also update `images/Headshot.jpg` to preserve the old URL |
+| Homepage photo | Replace `assets/images/asad-hiking.jpg`; the full image is displayed without cropping |
+| About portrait | Replace `assets/images/headshot.jpg`; also update `images/Headshot.jpg` to preserve the old URL |
 | Name, description, and profile links | `_config.yml` |
 | Profile icons and link labels | `_includes/profile-links.html` and `_includes/icons/` |
 | Navigation | `_data/navigation.yml` |
