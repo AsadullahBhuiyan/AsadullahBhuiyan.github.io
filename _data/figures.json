@@ -8,7 +8,7 @@
     "number": 1,
     "source": "https://arxiv.org/abs/2606.11319",
     "alt": "Test accuracy for MNIST, Fashion-MNIST, and KMNIST as training pixel-replacement noise increases, with example corrupted images below each plot.",
-    "short": "Neural networks retain predictive information in heavily corrupted training images.",
+    "short": "Neural networks retain substantial predictive power well above chance, even when trained on heavily corrupted images.",
     "caption": "Width-128, three-layer ReLU networks trained with cross-entropy on corrupted inputs and intact labels, evaluated on clean test images. The curves average 100 noisy training realizations; shaded bands show one standard deviation. Dashed lines mark chance accuracy."
   },
   "learning_theory": {
