@@ -1,0 +1,87 @@
+[
+  {
+    "url": "https://aadeliee22.github.io/",
+    "response": "200 https://aadeliee22.github.io/",
+    "error": ""
+  },
+  {
+    "url": "https://arxiv.org/abs/2010.00016",
+    "response": "200 https://arxiv.org/abs/2010.00016",
+    "error": ""
+  },
+  {
+    "url": "https://arxiv.org/abs/2507.13437",
+    "response": "200 https://arxiv.org/abs/2507.13437",
+    "error": ""
+  },
+  {
+    "url": "https://arxiv.org/abs/2606.11319",
+    "response": "200 https://arxiv.org/abs/2606.11319",
+    "error": ""
+  },
+  {
+    "url": "https://doi.org/10.1007/s10910-022-01417-9",
+    "response": "200 https://link.springer.com/article/10.1007/s10910-022-01417-9?error=cookies_not_supported&code=e79b5674-9a23-442c-8b4e-dfd06220e5f7",
+    "error": ""
+  },
+  {
+    "url": "https://doi.org/10.1103/nk38-ygyq",
+    "response": "200 https://journals.aps.org/prresearch/abstract/10.1103/nk38-ygyq",
+    "error": ""
+  },
+  {
+    "url": "https://doi.org/10.1119/10.0001703",
+    "response": "403 https://pubs.aip.org/ajp/article/88/11/986/1058343/Landau-levels-edge-states-and-gauge-choice-in-2D",
+    "error": ""
+  },
+  {
+    "url": "https://doi.org/10.3390/nano10020265",
+    "response": "403 https://www.mdpi.com/2079-4991/10/2/265",
+    "error": ""
+  },
+  {
+    "url": "https://github.com/AsadullahBhuiyan",
+    "response": "200 https://github.com/AsadullahBhuiyan",
+    "error": ""
+  },
+  {
+    "url": "https://github.com/AsadullahBhuiyan/class_A_fermionic_adaptive_circuit",
+    "response": "200 https://github.com/AsadullahBhuiyan/class_A_fermionic_adaptive_circuit",
+    "error": ""
+  },
+  {
+    "url": "https://github.com/AsadullahBhuiyan/noisy_neural_networks",
+    "response": "200 https://github.com/AsadullahBhuiyan/noisy_neural_networks",
+    "error": ""
+  },
+  {
+    "url": "https://jekyllrb.com/",
+    "response": "200 https://jekyllrb.com/",
+    "error": ""
+  },
+  {
+    "url": "https://meetings-archive.aps.org/mar/2023/d33/2/",
+    "response": "200 https://meetings-archive.aps.org/mar/2023/d33/2/",
+    "error": ""
+  },
+  {
+    "url": "https://meetings-archive.aps.org/smt/2025/mar-n29/8/",
+    "response": "200 https://meetings-archive.aps.org/smt/2025/mar-n29/8/",
+    "error": ""
+  },
+  {
+    "url": "https://mmistakes.github.io/minimal-mistakes/",
+    "response": "200 https://mmistakes.github.io/minimal-mistakes/",
+    "error": ""
+  },
+  {
+    "url": "https://scholar.google.com/citations?user=-o9vM1AAAAAJ",
+    "response": "200 https://scholar.google.com/citations?user=-o9vM1AAAAAJ",
+    "error": ""
+  },
+  {
+    "url": "https://www.linkedin.com/in/asadullah-bhuiyan-916404149",
+    "response": "999 https://www.linkedin.com/in/asadullah-bhuiyan-916404149",
+    "error": ""
+  }
+]

@@ -1,0 +1,5 @@
+{% assign figure = site.data.figures[include.id] %}
+<figure class="paper-figure{% if include.home %} feature-figure{% endif %}">
+  <a class="figure-enlarge" href="{{ figure.large | relative_url }}" aria-label="View full-size figure: {{ figure.title | escape }}"><img src="{{ figure.image | relative_url }}" alt="{{ figure.alt | escape }}" width="{{ figure.width }}" height="{{ figure.height }}" loading="lazy" decoding="async"></a>
+  <figcaption>{% if include.home %}{{ figure.short }}{% else %}{{ figure.caption }}{% endif %} <a href="{{ figure.source }}">Figure {{ figure.number }}, paper</a> · <a href="{{ figure.large | relative_url }}">Full size</a></figcaption>
+</figure>

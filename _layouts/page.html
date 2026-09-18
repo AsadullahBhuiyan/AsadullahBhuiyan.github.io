@@ -1,0 +1,8 @@
+---
+layout: default
+---
+<main id="main" tabindex="-1" class="site-main{% if page.home %} site-main--home{% endif %}">
+  <article class="{% if page.home %}home-shell{% else %}content-shell{% endif %}">
+    {{ content }}
+  </article>
+</main>

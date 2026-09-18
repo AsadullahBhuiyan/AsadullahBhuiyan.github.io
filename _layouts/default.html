@@ -1,31 +1,27 @@
----
-layout: compress
----
-
-{% include base_path %}
-
 <!doctype html>
-<html lang="{{ site.locale | slice: 0,2 }}" class="no-js"{% if site.site_theme == "dark" %} data-theme="dark"{% endif %}>
-  <head>
-    {% include head.html %}
-    {% include head/custom.html %}
-  </head>
-
-  <body>
-
-    {% include browser-upgrade.html %}
-    {% include masthead.html %}
-
-    {{ content }}
-
-    <div class="page__footer">
-      <footer>
-        {% include footer/custom.html %}
-        {% include footer.html %}
-      </footer>
-    </div>
-
-    {% include scripts.html %}
-
-  </body>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% unless page.home %}{{ page.title | escape }} · {% endunless %}{{ site.title | escape }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | escape }}">
+  <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+  <meta property="og:description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | escape }}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:image" content="{{ site.og_image | absolute_url }}">
+  <meta property="og:image:alt" content="Portrait of Asadullah Bhuiyan">
+  <meta name="twitter:card" content="summary">
+  <meta name="theme-color" content="#16212b">
+  <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":{{ site.name | jsonify }},"url":{{ site.url | jsonify }},"jobTitle":"Ph.D. Candidate in Theoretical Physics","affiliation":{"@type":"Organization","name":"Cornell University"},"sameAs":[{{ site.scholar | jsonify }},{{ site.github | jsonify }},{{ site.linkedin | jsonify }}]}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  {% include masthead.html %}
+  {{ content }}
+  {% include footer.html %}
+</body>
 </html>

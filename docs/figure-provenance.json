@@ -1,0 +1,54 @@
+[
+  {
+    "file": "learning-robustness",
+    "source_paper": "neural_networks",
+    "figure": 1,
+    "page": 2,
+    "crop_points": [
+      52,
+      49,
+      565,
+      234
+    ],
+    "sha256": "3ab9225fcde6f35ccac2fa05cd9b31d443404904b025343ffb06ddb97bef47f0"
+  },
+  {
+    "file": "learning-theory",
+    "source_paper": "neural_networks",
+    "figure": 4,
+    "page": 6,
+    "crop_points": [
+      52,
+      48,
+      565,
+      176
+    ],
+    "sha256": "3ab9225fcde6f35ccac2fa05cd9b31d443404904b025343ffb06ddb97bef47f0"
+  },
+  {
+    "file": "quantum-classification",
+    "source_paper": "free_fermions",
+    "figure": 1,
+    "page": 4,
+    "crop_points": [
+      51,
+      48,
+      565,
+      359
+    ],
+    "sha256": "fb23821c5c3f34e8a7d65e9d9dab2149c02551c185d6a5fcd000aa8684dfcd16"
+  },
+  {
+    "file": "quantum-protocol",
+    "source_paper": "free_fermions",
+    "figure": 3,
+    "page": 17,
+    "crop_points": [
+      51,
+      47,
+      565,
+      283
+    ],
+    "sha256": "fb23821c5c3f34e8a7d65e9d9dab2149c02551c185d6a5fcd000aa8684dfcd16"
+  }
+]

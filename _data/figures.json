@@ -1,0 +1,50 @@
+{
+  "learning_robustness": {
+    "title": "Learning under input corruption",
+    "image": "/assets/images/research/learning-robustness.png",
+    "large": "/assets/images/research/learning-robustness-large.png",
+    "width": 1283,
+    "height": 463,
+    "number": 1,
+    "source": "https://arxiv.org/abs/2606.11319",
+    "alt": "Test accuracy for MNIST, Fashion-MNIST, and KMNIST as training pixel-replacement noise increases, with example corrupted images below each plot.",
+    "short": "Neural networks retain predictive information in heavily corrupted training images.",
+    "caption": "Width-128, three-layer ReLU networks trained with cross-entropy on corrupted inputs and intact labels, evaluated on clean test images. The curves average 100 noisy training realizations; shaded bands show one standard deviation. Dashed lines mark chance accuracy."
+  },
+  "learning_theory": {
+    "title": "Testing the high-noise centroid theory",
+    "image": "/assets/images/research/learning-theory.png",
+    "large": "/assets/images/research/learning-theory-large.png",
+    "width": 1283,
+    "height": 320,
+    "number": 4,
+    "source": "https://arxiv.org/abs/2606.11319",
+    "alt": "Comparison of ensemble-mean network accuracy with fitted centroid-model predictions, with insets comparing output values for three datasets.",
+    "short": "A controlled comparison between the centroid response and network experiments.",
+    "caption": "Controlled theory validation uses width-2048, three-layer erf networks trained with mean squared error, distinct from the ReLU/cross-entropy experiments above. The dashed curve is a fitted effective model; the insets compare individual output values at 97% replacement noise. Accuracy error bars show one standard deviation."
+  },
+  "quantum_classification": {
+    "title": "Classifying monitored quantum dynamics",
+    "image": "/assets/images/research/quantum-classification.png",
+    "large": "/assets/images/research/quantum-classification-large.png",
+    "width": 1286,
+    "height": 778,
+    "number": 1,
+    "source": "https://arxiv.org/abs/2507.13437",
+    "alt": "Diagram connecting many-body evolution operators and single-particle transfer matrices to symmetry classes and topological classifications through a dynamical bulk-boundary correspondence.",
+    "short": "Two complementary descriptions connect symmetry, topology, and the states produced by monitored dynamics.",
+    "caption": "The many-body evolution-operator and single-particle transfer-matrix descriptions lead to corresponding classifications in the free-fermion limit. A dynamical bulk–boundary correspondence connects spacetime topology to the topology of the steady-state ensemble."
+  },
+  "quantum_protocol": {
+    "title": "Adaptive topological-state preparation",
+    "image": "/assets/images/research/quantum-protocol.png",
+    "large": "/assets/images/research/quantum-protocol-large.png",
+    "width": 1286,
+    "height": 591,
+    "number": 3,
+    "source": "https://arxiv.org/abs/2507.13437",
+    "alt": "Adaptive circuit with physical and ancillary lattices, localized-mode measurements, outcome-dependent corrections, and redistribution of ancillary particles.",
+    "short": "Measurements and feedforward steer the physical system toward topological states.",
+    "caption": "Each cycle measures localized modes in the physical system, applies corrections conditioned on the outcomes, and redistributes ancillary particles. The construction connects a topological classification to a concrete measurement-feedback protocol."
+  }
+}

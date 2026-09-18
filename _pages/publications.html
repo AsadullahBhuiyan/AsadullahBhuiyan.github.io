@@ -1,36 +1,11 @@
 ---
-layout: archive
-title: "Publications"
+title: Publications
 permalink: /publications/
-author_profile: true
+excerpt: "Complete publications and preprints by Asadullah Bhuiyan, with journal links and current manuscript status."
 ---
-
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
-
-{% include base_path %}
-
-<!-- New style rendering if publication categories are defined -->
-{% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
-  {% endfor %}
-{% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
-{% endif %}
-
-
-
+<header class="page-intro"><p class="eyebrow">Publications</p><h1 class="page-title">Papers &amp; preprints</h1><p class="page-deck">Learning, quantum dynamics, and earlier work.</p></header>
+<p class="publication-note">Five peer-reviewed journal articles, one preprint, and one manuscript in preparation. <a href="{{ site.scholar }}">Google Scholar</a> · <a href="{{ site.cv | relative_url }}">Academic CV (PDF)</a></p>
+{% for group in site.data.publications %}
+<section class="publication-group" aria-labelledby="{{ group.id }}"><h2 id="{{ group.id }}">{{ group.title }}</h2><ol class="publication-list">
+{% for paper in group.papers %}<li><span class="publication-year">{{ paper.year }}</span><div><h3>{% if paper.url %}<a href="{{ paper.url }}">{{ paper.title }}</a>{% else %}{{ paper.title }}{% endif %}</h3><p class="publication-authors">{{ paper.authors }}</p><p class="publication-venue">{{ paper.venue }}</p>{% if paper.note %}<p class="publication-note">{{ paper.note }}</p>{% endif %}{% if paper.research %}<a class="publication-summary" href="{{ paper.research | relative_url }}">Research summary &amp; contributions →</a>{% endif %}</div></li>{% endfor %}
+</ol></section>{% endfor %}

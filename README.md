@@ -1,96 +1,58 @@
-# Academic Pages
-**Academic Pages is a GitHub Pages template for personal and professional portfolio-oriented websites.**
+# Asadullah Bhuiyan — research website
 
-![Academic Pages template example](images/homepage.png "Academic Pages template example")
+Jekyll site for https://asadullahbhuiyan.github.io. The redesign emphasizes the physics of learning while presenting the complete quantum and earlier research record.
 
-# Getting Started
+## Preview locally
 
-1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
-1. Click the "Use this template" button in the top right.
-1. On the "New repository" page, enter your public repository name as "[your GitHub username].github.io", which will also be your website's URL.
-1. Set site-wide configuration and add your content.
-1. Upload any files (like PDFs, .zip files, etc.) to the `files/` directory. They will appear at https://[your GitHub username].github.io/files/example.pdf.
-1. Check status by going to the repository settings, in the "GitHub pages" section
-1. (Optional) Use the Jupyter notebooks or python scripts in the `markdown_generator` folder to generate markdown files for publications and talks from a TSV file.
+Use Ruby 3.2.2 and Bundler 2.7.1, as recorded in the version files and lockfile.
 
-See more info at https://academicpages.github.io/
-
-## Running locally
-
-When you are initially working on your website, it is very useful to be able to preview the changes locally before pushing them to GitHub. To work locally you will need to:
-
-1. Clone the repository and made updates as detailed above.
-
-### Using a different IDE
-1. Make sure you have ruby-dev, bundler, and nodejs installed
-    
-    On most Linux distribution and [Windows Subsystem Linux](https://learn.microsoft.com/en-us/windows/wsl/about) the command is:
-    ```bash
-    sudo apt install ruby-dev ruby-bundler nodejs
-    ```
-    If you see error `Unable to locate package ruby-bundler`, `Unable to locate package nodejs `, run the following:
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-    then try run `sudo apt install ruby-dev ruby-bundler nodejs` again.
-
-    On MacOS the commands are:
-    ```bash
-    brew install ruby
-    brew install node
-    gem install bundler
-    ```
-1. Run `bundle install` to install ruby dependencies. If you get errors, delete Gemfile.lock and try again.
-
-    If you see file permission error like `Fetching bundler-2.6.3.gem ERROR:  While executing gem (Gem::FilePermissionError) You don't have write permissions for the /var/lib/gems/3.2.0 directory.` or `Bundler::PermissionError: There was an error while trying to write to /usr/local/bin.`
-    Install Gems Locally (Recommended):
-    ```bash
-    bundle config set --local path 'vendor/bundle'
-    ```
-    then try run `bundle install` again. If succeeded, you should see a folder called `vendor` and `.bundle`.
-
-1. Run `jekyll serve -l -H localhost` to generate the HTML and serve it from `localhost:4000` the local server will automatically rebuild and refresh the pages on change.
-    You may also try `bundle exec jekyll serve -l -H localhost` to ensure jekyll to use specific dependencies on your own local machine.
-
-If you are running on Linux it may be necessary to install some additional dependencies prior to being able to run locally: `sudo apt install build-essential gcc make`
-
-## Using Docker
-
-Working from a different OS, or just want to avoid installing dependencies? You can use the provided `Dockerfile` to build a container that will run the site for you if you have [Docker](https://www.docker.com/) installed.
-
-You can build and execute the container by running the following command in the repository:
-
-```bash
-chmod -R 777 .
-docker compose up
+```sh
+gem install bundler -v 2.7.1
+bundle install
+./scripts/preview.sh
 ```
 
-You should now be able to access the website from `localhost:4000`.
+Open http://127.0.0.1:4000. Run these commands inside this repository. The preview listens only on the local computer.
 
-### Using the DevContainer in VS Code
+To build and check the production site:
 
-If you are using [Visual Studio Code](https://code.visualstudio.com/) you can use the [Dev Container](https://code.visualstudio.com/docs/devcontainers/containers) that comes with this Repository. Normally VS Code detects that a development coontainer configuration is available and asks you if you want to use the container. If this doesn't happen you can manually start the container by **F1->DevContainer: Reopen in Container**. This restarts your VS Code in the container and automatically hosts your academic page locally on http://localhost:4000. All changes will be updated live to that page after a few seconds.
+```sh
+JEKYLL_ENV=production bundle exec jekyll build
+python3 scripts/check_site.py _site --production
+```
 
-# Maintenance
+The theme styles are vendored from the reference repository at a recorded commit, so the build does not fetch a moving theme branch. `github-pages` 232 and the complete dependency graph are pinned in the Gemfile and lockfile.
 
-Bug reports and feature requests to the template should be [submitted via GitHub](https://github.com/academicpages/academicpages.github.io/issues/new/choose). For questions concerning how to style the template, please feel free to start a [new discussion on GitHub](https://github.com/academicpages/academicpages.github.io/discussions).
+## Update the site
 
-This repository was forked (then detached) by [Stuart Geiger](https://github.com/staeiou) from the [Minimal Mistakes Jekyll Theme](https://mmistakes.github.io/minimal-mistakes/), which is © 2016 Michael Rose and released under the MIT License (see LICENSE.md). It is currently being maintained by [Robert Zupko](https://github.com/rjzupkoii) and additional maintainers would be welcomed.
+| Change | Location |
+|---|---|
+| Homepage introduction and featured projects | `index.html` |
+| Research descriptions and personal contributions | `_pages/research.html` |
+| Publications, authors, venues, and statuses | `_data/publications.json` |
+| Talks and program links | `_pages/talks.html` |
+| Biography, education, teaching, and outreach | `_pages/about.html` |
+| CV download | Replace `assets/files/Asadullah_Bhuiyan_CV.pdf`, keeping its name |
+| Figure images, captions, and source links | `assets/images/research/` and `_data/figures.json` |
+| Portrait | Replace `assets/images/headshot.jpg`; also update `images/Headshot.jpg` to preserve the old URL |
+| Name, description, and profile links | `_config.yml` |
+| Navigation | `_data/navigation.yml` |
+| Visual styling | `assets/css/main.scss` |
 
-## Bugfixes and enhancements
+The publication data are JSON; preserve valid quoting and commas. Author strings allow simple `<strong>` markup for the site owner's name. Update statuses consistently on the homepage, research page, and publications data. Research figures have display and larger versions; maintain their aspect ratios and retain readable axes and labels. The figure link opens the larger version directly.
 
-If you have bugfixes and enhancements that you would like to submit as a pull request, you will need to [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) this repository as opposed to using it as a template. This will also allow you to [synchronize your copy](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork) of template to your fork as well.
+Voice: follow the learning-theory CV's direct, result-first wording. Use “we” for collective paper results and “I” for documented personal contributions. Keep exploratory interests and ongoing results distinct from completed work. Avoid promotional taglines and inflated claims.
 
-Unfortunately, one logistical issue with a template theme like Academic Pages that makes it a little tricky to get bug fixes and updates to the core theme. If you use this template and customize it, you will probably get merge conflicts if you attempt to synchronize. If you want to save your various .yml configuration files and markdown files, you can delete the repository and fork it again. Or you can manually patch.
+## Review and publication
 
----
-<div align="center">
-    
-![pages-build-deployment](https://github.com/academicpages/academicpages.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)
-[![GitHub contributors](https://img.shields.io/github/contributors/academicpages/academicpages.github.io.svg)](https://github.com/academicpages/academicpages.github.io/graphs/contributors)
-[![GitHub release](https://img.shields.io/github/v/release/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/releases/latest)
-[![GitHub license](https://img.shields.io/github/license/academicpages/academicpages.github.io?color=blue)](https://github.com/academicpages/academicpages.github.io/blob/master/LICENSE)
+The `redesign` branch is a local review draft. The existing live site publishes from `master` at the repository root. The check workflow only builds and validates; it cannot deploy and has read-only permissions. No Pages settings were changed.
 
-[![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
-[![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
-</div>
+After review, commit any corrections, merge `redesign` into `master`, and push `master` to publish through the existing GitHub Pages configuration. Verify the GitHub Pages build, navigation, CV, and figures on the live domain. Do not publish merely to obtain a preview.
+
+The annotated record in `docs/PROVENANCE.md` identifies the baseline and reference commits. Backup tag: `before-redesign-2026-09-18`. Before publication, preserve that tag remotely with the reviewed changes. To roll back a published squash merge, revert that merge commit and push the revert, retaining history rather than force-pushing.
+
+## Compatibility and credits
+
+Existing `/publications/`, `/talks/`, and `/cv/` routes remain. `/resume`, `/resume/`, and `/cv-json/` lead to the CV page; `/teaching/` leads to About; `/year-archive/` leads to Research; `/talkmap.html` leads to Talks. The old portrait URL remains available. Removed example posts, fake CV entries, and sample paper/slide PDFs were template content, not the owner's research.
+
+The design is adapted from Hyejin Kim's site and the MIT-licensed Minimal Mistakes theme by Michael Rose and contributors. Preserve the license and attribution. Research figures belong to their respective paper authors; links identify the source papers. This site contains no comments, analytics, contact-form backend, or externally loaded JavaScript.

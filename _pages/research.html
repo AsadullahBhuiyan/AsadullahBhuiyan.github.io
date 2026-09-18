@@ -1,0 +1,45 @@
+---
+title: Research
+permalink: /research/
+excerpt: "Research on neural-network learning mechanisms, topological quantum dynamics, adaptive state preparation, and monitored bosonic systems."
+---
+<header class="page-intro"><p class="eyebrow">Research</p><h1 class="page-title">Physics of learning &amp;<br> quantum dynamics</h1><p class="page-deck">Analytical theory and numerical experiments.</p></header>
+<p class="lead-copy">I use analytical theory and numerical experiments to study neural-network learning and non-equilibrium quantum systems. My current interests emphasize statistical physics and kernel descriptions of neural networks, AI interpretability, and the effects of data structure, noise, and training on learning.</p>
+<nav class="section-nav" aria-label="Research sections"><a href="#learning">Neural networks</a><a href="#quantum">Quantum dynamics</a><a href="#ongoing">Ongoing work</a><a href="#bosonic">Bosonic dynamics</a><a href="#earlier">Earlier research</a></nav>
+<section id="learning" class="research-feature" aria-labelledby="learning-title">
+  <p class="project-status">Preprint · Under review at Physical Review Research</p>
+  <h2 id="learning-title">Learning from almost nothing</h2>
+  <p class="project-subtitle">How neural networks survive heavy input corruption</p>
+  <p>We study neural networks trained on heavily corrupted inputs with intact labels. Our numerical experiments show that multilayer perceptrons retain predictive information even when individual training images are almost entirely noise.</p>
+  <p>In the high-noise, infinite-width limit, our analysis identifies a leading predictor governed by overlaps with centered class means. The leading decision rule is universal across a broad class of MLP architectures within this limit. Controlled numerical experiments test how this effective description compares with finite-width networks.</p>
+  {% include paper-figure.html id="learning_robustness" %}
+  <div class="contribution-block"><h3>My contributions</h3><ul>
+    <li>Initiated the project from numerical observations, recruited three collaborators, and organized our research meetings.</li>
+    <li>Developed and wrote the permutation-symmetry and linear-response explanation of the centroid predictor within neural tangent kernel theory.</li>
+    <li>Guided the complementary high-noise expansion and used Python/PyTorch experiments to compare the theory with ensembles of finite-width networks.</li>
+    <li>Contributed substantially to the manuscript’s writing and organization.</li>
+  </ul></div>
+  {% include paper-figure.html id="learning_theory" %}
+  <p class="research-caveat">The analytical result is a controlled statement about the high-noise kernel regime. The comparison uses fitted global coefficients; it does not imply that all trained networks implement the same rule outside this limit.</p>
+  <p class="text-links"><a href="https://arxiv.org/abs/2606.11319">Preprint: arXiv:2606.11319</a> · <a href="https://github.com/AsadullahBhuiyan/noisy_neural_networks">Research code</a></p>
+</section>
+<section id="quantum" class="research-feature" aria-labelledby="quantum-title">
+  <p class="project-status">Published · Physical Review Research 8, 023147 (2026)</p>
+  <h2 id="quantum-title">Topological quantum dynamics</h2>
+  <p class="project-subtitle">Classification and adaptive preparation of topological states</p>
+  <p>We develop a symmetry and topology classification of monitored free-fermion dynamics and construct adaptive protocols for preparing topological states.</p>
+  <p>Our work connects many-body evolution operators with single-particle transfer matrices through a dynamical bulk–boundary correspondence. It also determines which symmetry classes allow symmetry-preserving, post-selection-free Gaussian measurements, then uses these results to construct adaptive topological-state preparation protocols.</p>
+  {% include paper-figure.html id="quantum_classification" %}
+  <div class="contribution-block"><h3>My contributions</h3><ul>
+    <li>Developed Lie-algebraic classification proofs and existence proofs for symmetry-preserving Gaussian measurements, and wrote the technical appendices.</li>
+    <li>Constructed and analyzed a finite-range measurement-feedback protocol for preparing disordered ensembles of free-fermion topological states.</li>
+    <li>Originated an effective Lindbladian description and used closed covariance equations to determine the relaxation rate of the ideal preparation dynamics.</li>
+    <li>Performed independent numerical studies of the protocol and its phase transitions, created the classification figure above, and contributed substantially to the main text.</li>
+  </ul></div>
+  {% include paper-figure.html id="quantum_protocol" %}
+  <p class="research-caveat">The ideal construction with exponentially localized operations and the finite-range numerical protocol are distinct. We also distinguish observables resolved along individual trajectories from those formed after averaging over trajectories.</p>
+  <p class="text-links"><a href="https://doi.org/10.1103/nk38-ygyq">Published paper</a> · <a href="https://arxiv.org/abs/2507.13437">arXiv</a> · <a href="https://github.com/AsadullahBhuiyan/class_A_fermionic_adaptive_circuit">Related follow-up code</a></p>
+</section>
+<section id="ongoing" class="research-feature research-feature--compact"><p class="project-status">Manuscript in preparation</p><h2>Chiral critical state ensembles</h2><p><em>Chiral critical state ensembles in topological adaptive quantum circuits</em><br>Asadullah Bhuiyan, Haining Pan, and Chao-Ming Jian.</p><p>Our ongoing work investigates critical and chiral properties of topological domain-wall modes prepared by the measurement-feedback protocol. I compare entanglement, mutual information, and charge-fluctuation diagnostics across system sizes to characterize these boundary-state ensembles. Establishing their chiral structure remains a research objective.</p></section>
+<section id="bosonic" class="research-feature research-feature--compact"><p class="section-label">Further doctoral research</p><h2>Monitored bosonic dynamics</h2><p>I study how stochastic measurements purify Gaussian bosonic systems and how their entropy dynamics can be described analytically.</p><ul><li>Proved an exponential upper bound on mean second Rényi entropy for an all-to-all Gaussian circuit with Haar-random passive gates and single-mode heterodyne measurements.</li><li>Constructed a replica spin-chain description of entropy dynamics in a one-dimensional stochastic bosonic circuit.</li><li>Investigated covariance dynamics numerically, including stochastic Riccati formulations, and identified truncation artifacts in finite-Hilbert-space simulations.</li></ul><p>My interests in this area include dissipation, purification, and effective descriptions of stochastic quantum dynamics.</p></section>
+<section id="earlier" class="research-feature research-feature--compact"><p class="section-label">Earlier research</p><h2>Driven systems, quantum matter, and biophysics</h2><p>At the University of Alberta, I combined analytical and numerical methods across several settings:</p><ul><li><strong>Driven finite lattices:</strong> studied edge-localized Schrödinger cat states and the role of boundary conditions in reconciling continuum and tight-binding descriptions.</li><li><strong>Quantum dots:</strong> investigated Landau levels and edge states, separating gauge-invariant densities and currents from numerical eigenvector ambiguities.</li><li><strong>Singular potentials:</strong> coauthored work on bound states of the one-dimensional pseudoharmonic oscillator.</li><li><strong>Correlated electrons:</strong> developed an iterative MATLAB Green’s-function solver for the two-dimensional Hubbard–Holstein model.</li><li><strong>Microtubule ensembles:</strong> contributed software, formal analysis, and validation to a study of electrical properties under cell-like conditions.</li></ul><p>At Cornell, I also studied interacting-edge conductance and magnetic-impurity renormalization in fractional topological-insulator models.</p><p><a class="inline-arrow" href="{{ '/publications/' | relative_url }}">Complete publication record →</a></p></section>
