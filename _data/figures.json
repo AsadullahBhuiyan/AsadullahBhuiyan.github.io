@@ -32,7 +32,7 @@
     "number": 1,
     "source": "https://arxiv.org/abs/2507.13437",
     "alt": "Diagram connecting many-body evolution operators and single-particle transfer matrices to symmetry classes and topological classifications through a dynamical bulk-boundary correspondence.",
-    "short": "Two complementary descriptions connect symmetry, topology, and the states produced by monitored dynamics.",
+    "short": "Two complementary symmetry-based schemes classify topological monitored free-fermion dynamics and relate the classification of the dynamics to that of their steady states.",
     "caption": "The many-body evolution-operator and single-particle transfer-matrix descriptions lead to corresponding classifications in the free-fermion limit. A dynamical bulk–boundary correspondence connects spacetime topology to the topology of the steady-state ensemble."
   },
   "quantum_protocol": {
