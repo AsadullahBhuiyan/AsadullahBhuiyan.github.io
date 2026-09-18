@@ -45,9 +45,9 @@ Voice: follow the learning-theory CV's direct, result-first wording. Use â€œweâ€
 
 ## Review and publication
 
-The `redesign` branch is a local review draft. The existing live site publishes from `master` at the repository root. The check workflow only builds and validates; it cannot deploy and has read-only permissions. No Pages settings were changed.
+The `redesign` branch contains the reviewed redesign. The existing live site publishes from `master` at the repository root. The check workflow only builds and validates; it cannot deploy and has read-only permissions. No Pages settings were changed.
 
-After review, commit any corrections, merge `redesign` into `master`, and push `master` to publish through the existing GitHub Pages configuration. Verify the GitHub Pages build, navigation, CV, and figures on the live domain. Do not publish merely to obtain a preview.
+To publish future changes, commit any corrections, merge the reviewed branch into `master`, and push `master` to publish through the existing GitHub Pages configuration. Verify the GitHub Pages build, navigation, CV, and figures on the live domain. Do not publish merely to obtain a preview.
 
 The annotated record in `docs/PROVENANCE.md` identifies the baseline and reference commits. Backup tag: `before-redesign-2026-09-18`. Before publication, preserve that tag remotely with the reviewed changes. To roll back a published squash merge, revert that merge commit and push the revert, retaining history rather than force-pushing.
 

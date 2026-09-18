@@ -3,7 +3,7 @@
 ## Build and content checks
 
 - Jekyll 3.10.0 / GitHub Pages 232 builds using Ruby 3.2.2 and Bundler 2.7.1.
-- Pinned lockfile resolves for arm64 macOS and x86_64 Linux. Local build executed on macOS; the prepared GitHub check workflow has not been run remotely.
+- Pinned lockfile resolves for arm64 macOS and x86_64 Linux. Local build executed on macOS; the initial preview was tested locally. The subsequent publication check caught a missing vendored SCSS directory, fixed by anchoring the root dependency-cache ignore rule and committing the theme dependencies.
 - Production build is separate from the local preview. Production canonical and sharing URLs use `https://asadullahbhuiyan.github.io`.
 - Built HTML audit: 13 pages including redirects; 126 local link/asset references checked; no missing local targets or anchors; one h1 per page; no duplicate IDs.
 - Five journal articles, one preprint, and one manuscript in preparation are present. Both flagship projects have contribution sections and two figures each.
@@ -26,7 +26,7 @@ The external-link check results are recorded in `external-link-check.json`. The 
 
 Both APS program pages were also read to confirm the talk titles, presenter, and dates. No genuine public slide files were found in the original repository; its slide PDFs were template samples. Private presentation decks were not published.
 
-## Deployment state
+## Initial preview deployment state (before publication)
 
 The original remote master remains the baseline `ec01a77130944f5c95fe89543f9b9b4546331872`. Repository settings were read, not changed: legacy GitHub Pages, master branch, root directory, no custom domain. Redesign and backup tag are local; no changes have been pushed or deployed. The check workflow has read-only permissions and no deployment step.
 
