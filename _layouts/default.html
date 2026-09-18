@@ -15,7 +15,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="theme-color" content="#16212b">
   <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
-  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":{{ site.name | jsonify }},"url":{{ site.url | jsonify }},"jobTitle":"Ph.D. Candidate in Theoretical Physics","affiliation":{"@type":"Organization","name":"Cornell University"},"sameAs":[{{ site.scholar | jsonify }},{{ site.github | jsonify }},{{ site.linkedin | jsonify }}]}</script>
 </head>
 <body>
