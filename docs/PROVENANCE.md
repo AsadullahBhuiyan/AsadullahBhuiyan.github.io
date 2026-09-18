@@ -11,7 +11,7 @@
 ## Content sources
 
 - `Documents/LaTeX/postdoc_learning_cv.tex`, September 15 version: primary interests and current contribution wording.
-- `Documents/PDFs/academic_cv.pdf`: unchanged public CV download; comprehensive record. Its SHA-256 is recorded in the verification report.
+- `Documents/PDFs/academic_cv.pdf`: initial public CV download, superseded after publication by the user-supplied `CV_Asad_Stat_Phys_Learning.pdf`. The replacement is copied unchanged to the existing public download URL; its SHA-256 is recorded in the verification report.
 - `Documents/LaTeX/academic_cv.tex`: detailed contributions and earlier research.
 - Flagship preprints already supplied in the workspace: arXiv:2606.11319v1 and arXiv:2507.13437v3. Figure extraction coordinates and PDF hashes are in `figure-provenance.json`.
 - The research-profile and talk-evidence records corroborate contribution attribution and event dates. These private working documents are not copied into the site.
@@ -26,7 +26,8 @@
 - Manuscript in preparation: public title, authors, status, and a brief CV-grounded description only. No unpublished figure or manuscript included.
 - The code linked from the quantum feature is explicitly labeled related follow-up code.
 - APS event names/titles follow the verified official programs. No public slide deck was present in the existing repository: its three slide PDFs were Academic Pages samples. Private presentation files were not published. Talks link to official programs and relevant research instead.
-- Do not copy the general CV's older research-interest wording over the newer learning-theory wording. The selected CV itself remains unchanged, as requested.
+- Do not copy the general CV's older research-interest wording over the newer learning-theory wording. Preserve the supplied PDF itself without editing its contents.
+- The homepage bio now uses the user's supplied personal introduction: a short greeting, research approach, and interests in AI alignment and interpretability. Repeated interests and the redundant research-area heading were removed. Scholar, GitHub, and LinkedIn are grouped below the main homepage buttons, using the same URLs as the supplied CV.
 
 ## Legacy routes
 

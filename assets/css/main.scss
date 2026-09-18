@@ -146,6 +146,19 @@ a:hover {
   margin-top: 2rem;
 }
 
+.hero-profiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 1.4rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.hero-profiles a {
+  display: inline-block;
+  padding: 0.45rem 0;
+}
+
 .research-button {
   border: 1px solid $ink;
   color: $ink;
@@ -503,6 +516,7 @@ a { text-underline-offset: .18em; }
 .research-hero h1 { font-size: clamp(3rem, 6.5vw, 5.25rem); }
 .hero-lead { font-size: clamp(1.35rem, 2.5vw, 1.8rem); max-width: 750px; }
 .hero-note { color: #59636e; max-width: 660px; margin: 1rem 0 0; }
+.hero-greeting { margin-top: 1.4rem; }
 .hero-portrait { width: 245px; height: 285px; object-fit: cover; object-position: center 48%; border-radius: 2px; }
 .hero-role { font-size: 1rem; }
 .research-points { margin-bottom: 3rem; }

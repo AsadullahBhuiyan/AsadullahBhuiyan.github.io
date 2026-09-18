@@ -8,7 +8,7 @@
 - Built HTML audit: 13 pages including redirects; 126 local link/asset references checked; no missing local targets or anchors; one h1 per page; no duplicate IDs.
 - Five journal articles, one preprint, and one manuscript in preparation are present. Both flagship projects have contribution sections and two figures each.
 - All four extracted figures were visually inspected for clipping, labels, and axes. Images are faithful crops from the supplied paper PDFs; larger versions are linked.
-- Selected public CV is byte-identical to the existing general academic CV. SHA-256: `9b4fea8c70c45f76a66770653db3770e8896b32dc90698373b7bdd54dc06ce86`.
+- Initial public CV was byte-identical to the existing general academic CV. SHA-256: `9b4fea8c70c45f76a66770653db3770e8896b32dc90698373b7bdd54dc06ce86`.
 - Main page and navigation copy contains no leftover friend identity. Hyejin Kim appears only as a legitimate coauthor or design attribution.
 - Only the approved CV is shipped as a PDF. Internal documents, provenance records, scripts, and dependency files are excluded from the built site.
 
@@ -31,3 +31,9 @@ Both APS program pages were also read to confirm the talk titles, presenter, and
 The original remote master remains the baseline `ec01a77130944f5c95fe89543f9b9b4546331872`. Repository settings were read, not changed: legacy GitHub Pages, master branch, root directory, no custom domain. Redesign and backup tag are local; no changes have been pushed or deployed. The check workflow has read-only permissions and no deployment step.
 
 Publication follows the user's review. Preserve the backup tag and merge the reviewed redesign into master; verify the resulting Pages build and live routes afterward.
+
+## Post-publication CV and homepage update
+
+- Replaced the CV with the supplied three-page `CV_Asad_Stat_Phys_Learning.pdf`, preserving the existing URL and exact PDF bytes. SHA-256: `d61983aa0e5ae383771e366038384c95c98f18fe510f45f9c52f48212eb5a065`.
+- Inspected all three PDF pages. Homepage profile links match the destinations embedded in the CV.
+- Replaced the repeated homepage research-interest summaries with a short personal bio based on the user's wording, followed by “Selected research.”
