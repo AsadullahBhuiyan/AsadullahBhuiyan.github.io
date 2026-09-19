@@ -628,3 +628,25 @@ a:visited { color: #821414; }
 .site-title:visited, .site-nav-links a:visited, .research-button:visited { color: #16212b; }
 .research-button--primary:visited { color: #fff; }
 .site-footer a:visited { color: #fff; }
+
+/* Full citations live with their project; keep long titles and author lists readable. */
+.publication-citation {
+  border-left: 2px solid $line;
+  padding: .35rem 0 .35rem 1.15rem;
+  margin: 1.35rem 0 1.8rem;
+  overflow-wrap: anywhere;
+}
+.publication-citation p { margin: .35rem 0; font-size: .9rem; }
+.publication-citation .citation-status {
+  color: $cornell-red;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.publication-citation .citation-title { font-family: Georgia, serif; font-size: 1.12rem; line-height: 1.45; }
+.citation-title a { color: $ink; text-decoration: underline; text-decoration-color: $line; }
+.earlier-project { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid $line; }
+.earlier-project h3 { font-size: 1.4rem; margin: 0 0 .65rem; }
+.earlier-project > p { margin: 0 0 1rem; }
+.earlier-project .publication-citation { margin-bottom: 0; }

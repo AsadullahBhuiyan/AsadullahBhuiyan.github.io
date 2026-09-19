@@ -1,20 +1,16 @@
 ---
 title: Research
 permalink: /research/
-excerpt: "Research on neural-network learning, topological quantum dynamics, adaptive state preparation, and monitored bosonic systems."
+excerpt: "Research projects, contributions, publications, and preprints by Asadullah Bhuiyan in neural-network learning and quantum dynamics."
 ---
 
 <header class="page-intro">
-  <p class="eyebrow">Research</p>
-  <h1 class="page-title">Physics of learning &amp;<br> quantum dynamics</h1>
+  <h1 class="page-title">Research</h1>
 </header>
 
-<p class="lead-copy">I combine analytical theory and numerical experiments to study neural-network learning and non-equilibrium quantum systems. My current interests include statistical physics and kernel descriptions of neural networks, AI interpretability, and how data structure, noise, and training shape learning.</p>
-
 <section id="learning" class="research-feature" aria-labelledby="learning-title">
-  <p class="project-status">Preprint · Under review at Physical Review Research</p>
   <h2 id="learning-title">Learning from almost nothing</h2>
-  <p class="project-subtitle">How neural networks survive heavy input corruption</p>
+  {% include project-citation.html project="learning" %}
 
   <p>We study neural networks trained on heavily corrupted inputs with clean labels. Our numerical experiments show that multilayer perceptrons can predict well above chance even when individual training images are almost entirely noise.</p>
 
@@ -35,16 +31,11 @@ excerpt: "Research on neural-network learning, topological quantum dynamics, ada
 
   <p class="research-caveat">The analytical result applies to the high-noise kernel regime, and the numerical comparison uses fitted global coefficients. Outside this limit, trained networks need not follow the same decision rule.</p>
 
-  <p class="text-links">
-    <a href="https://arxiv.org/abs/2606.11319">Preprint: arXiv:2606.11319</a> ·
-    <a href="https://github.com/AsadullahBhuiyan/noisy_neural_networks">Research code</a>
-  </p>
 </section>
 
 <section id="quantum" class="research-feature" aria-labelledby="quantum-title">
-  <p class="project-status">Published · Physical Review Research 8, 023147 (2026)</p>
   <h2 id="quantum-title">Topological quantum dynamics</h2>
-  <p class="project-subtitle">Classification and adaptive preparation of topological states</p>
+  {% include project-citation.html project="quantum" %}
 
   <p>We use symmetry and topology to classify monitored free-fermion dynamics and design adaptive quantum circuits that prepare topological states.</p>
 
@@ -66,19 +57,12 @@ excerpt: "Research on neural-network learning, topological quantum dynamics, ada
 
   <p class="research-caveat">The ideal construction uses exponentially localized operations, while the numerical protocol uses finite-range operations. We also distinguish observables evaluated along individual trajectories from those constructed after averaging over trajectories.</p>
 
-  <p class="text-links">
-    <a href="https://doi.org/10.1103/nk38-ygyq">Published paper</a> ·
-    <a href="https://arxiv.org/abs/2507.13437">arXiv</a> ·
-    <a href="https://github.com/AsadullahBhuiyan/class_A_fermionic_adaptive_circuit">Related follow-up code</a>
-  </p>
 </section>
 
 <section id="ongoing" class="research-feature research-feature--compact">
-  <p class="project-status">Manuscript in preparation</p>
   <h2>Chiral critical state ensembles</h2>
 
-  <p><em>Chiral critical state ensembles in topological adaptive quantum circuits</em><br>
-  Asadullah Bhuiyan, Haining Pan, and Chao-Ming Jian.</p>
+  {% include project-citation.html project="ongoing" %}
 
   <p>In ongoing follow-up work, we investigate the critical and chiral properties of topological domain-wall modes prepared by measurement and feedback. I compare entanglement, mutual information, and charge fluctuations across system sizes to characterize these boundary-state ensembles.</p>
 </section>
@@ -102,13 +86,32 @@ excerpt: "Research on neural-network learning, topological quantum dynamics, ada
 
   <p>As an undergraduate researcher at the University of Alberta, I combined analytical and numerical methods to study several problems:</p>
 
-  <ul>
-    <li><strong>Hubbard–Holstein models:</strong> developed an iterative MATLAB solver for Green’s functions in the two-dimensional Hubbard–Holstein model via dynamical mean-field theory.</li>
-    <li><strong>Singular potentials:</strong> co-authored a study on bound states in the one-dimensional pseudoharmonic oscillator.</li>
-    <li><strong>Periodically driven systems:</strong> studied boundary-localization in periodically-driven tight-binding models and how boundary conditions enable reconciliation with continuum descriptions .</li>
-    <li><strong>Landau levels and edge states:</strong> investigated quantum dots subject to strong magnetic fields, distinguishing gauge-invariant densities and currents from ambiguities in numerical eigenvectors.</li>
-    <li><strong>Microtubule ensembles:</strong> designed and conducted experiments on the electrical properties of microtubule ensembles under cell-like conditions and wrote code to automate statistical analysis of the data.</li>
-  </ul>
+  <section class="earlier-project" id="hubbard-holstein" aria-labelledby="hubbard-holstein-title">
+    <h3 id="hubbard-holstein-title">Hubbard–Holstein models</h3>
+    <p>Developed an iterative MATLAB solver for Green’s functions in the two-dimensional Hubbard–Holstein model via dynamical mean-field theory.</p>
+  </section>
 
-  <p><a class="inline-arrow" href="{{ '/publications/' | relative_url }}">Complete publication record →</a></p>
+  <section class="earlier-project" id="singular-potentials" aria-labelledby="singular-potentials-title">
+    <h3 id="singular-potentials-title">Singular potentials</h3>
+    <p>Co-authored a study on bound states in the one-dimensional pseudoharmonic oscillator.</p>
+    {% include project-citation.html project="singular-potentials" %}
+  </section>
+
+  <section class="earlier-project" id="periodically-driven" aria-labelledby="periodically-driven-title">
+    <h3 id="periodically-driven-title">Periodically driven systems</h3>
+    <p>Studied boundary localization in periodically driven tight-binding models and how boundary conditions enable reconciliation with continuum descriptions.</p>
+    {% include project-citation.html project="periodically-driven" %}
+  </section>
+
+  <section class="earlier-project" id="landau-levels" aria-labelledby="landau-levels-title">
+    <h3 id="landau-levels-title">Landau levels and edge states</h3>
+    <p>Investigated quantum dots subject to strong magnetic fields, distinguishing gauge-invariant densities and currents from ambiguities in numerical eigenvectors.</p>
+    {% include project-citation.html project="landau-levels" %}
+  </section>
+
+  <section class="earlier-project" id="microtubules" aria-labelledby="microtubules-title">
+    <h3 id="microtubules-title">Microtubule ensembles</h3>
+    <p>Designed and conducted experiments on the electrical properties of microtubule ensembles under cell-like conditions and wrote code to automate statistical analysis of the data.</p>
+    {% include project-citation.html project="microtubules" %}
+  </section>
 </section>

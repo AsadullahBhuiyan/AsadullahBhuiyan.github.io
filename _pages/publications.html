@@ -1,11 +1,6 @@
 ---
-title: Publications
+layout: null
 permalink: /publications/
-excerpt: "Complete publications and preprints by Asadullah Bhuiyan, with journal links and current manuscript status."
+redirect_to: /research/
+sitemap: false
 ---
-<header class="page-intro"><p class="eyebrow">Publications</p><h1 class="page-title">Papers &amp; preprints</h1><p class="page-deck">Learning, quantum dynamics, and earlier work.</p></header>
-<p class="publication-note">Five peer-reviewed journal articles, one preprint, and one manuscript in preparation. <a href="{{ site.scholar }}">Google Scholar</a> · <a href="{% include cv-url.html %}">Academic CV (PDF)</a></p>
-{% for group in site.data.publications %}
-<section class="publication-group" aria-labelledby="{{ group.id }}"><h2 id="{{ group.id }}">{{ group.title }}</h2><ol class="publication-list">
-{% for paper in group.papers %}<li><span class="publication-year">{{ paper.year }}</span><div><h3>{% if paper.url %}<a href="{{ paper.url }}">{{ paper.title }}</a>{% else %}{{ paper.title }}{% endif %}</h3><p class="publication-authors">{{ paper.authors }}</p><p class="publication-venue">{{ paper.venue }}</p>{% if paper.note %}<p class="publication-note">{{ paper.note }}</p>{% endif %}{% if paper.research %}<a class="publication-summary" href="{{ paper.research | relative_url }}">Research summary &amp; contributions →</a>{% endif %}</div></li>{% endfor %}
-</ol></section>{% endfor %}

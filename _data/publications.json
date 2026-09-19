@@ -10,7 +10,13 @@
         "venue": "arXiv:2606.11319 (2026).",
         "note": "Under review at Physical Review Research.",
         "url": "https://arxiv.org/abs/2606.11319",
-        "research": "/research/#learning"
+        "project": "learning",
+        "links": [
+          {
+            "label": "Research code",
+            "url": "https://github.com/AsadullahBhuiyan/noisy_neural_networks"
+          }
+        ]
       }
     ]
   },
@@ -24,35 +30,49 @@
         "authors": "<strong>A. Bhuiyan</strong>, H. Pan, and C.-M. Jian.",
         "venue": "Physical Review Research 8, 023147 (2026).",
         "url": "https://doi.org/10.1103/nk38-ygyq",
-        "research": "/research/#quantum"
+        "project": "quantum",
+        "links": [
+          {
+            "label": "arXiv",
+            "url": "https://arxiv.org/abs/2507.13437"
+          },
+          {
+            "label": "Related follow-up code",
+            "url": "https://github.com/AsadullahBhuiyan/class_A_fermionic_adaptive_circuit"
+          }
+        ]
       },
       {
         "year": "2023",
         "title": "The bound-state solutions of the one-dimensional pseudoharmonic oscillator",
         "authors": "R. Boyack, <strong>A. Bhuiyan</strong>, A. Su, and F. Marsiglio.",
         "venue": "Journal of Mathematical Chemistry 61, 242–276 (2023).",
-        "url": "https://doi.org/10.1007/s10910-022-01417-9"
+        "url": "https://doi.org/10.1007/s10910-022-01417-9",
+        "project": "singular-potentials"
       },
       {
         "year": "2020",
         "title": "Edge Localized Schrödinger Cat States in Finite Lattices via Periodic Driving",
         "authors": "<strong>A. Bhuiyan</strong> and F. Marsiglio.",
         "venue": "Physical Review B 102, 245302 (2020).",
-        "url": "https://arxiv.org/abs/2010.00016"
+        "url": "https://arxiv.org/abs/2010.00016",
+        "project": "periodically-driven"
       },
       {
         "year": "2020",
         "title": "Landau Levels, Edge States, and Gauge Choice in 2D Quantum Dots",
         "authors": "<strong>A. Bhuiyan</strong> and F. Marsiglio.",
         "venue": "American Journal of Physics 88, 986–1005 (2020).",
-        "url": "https://doi.org/10.1119/10.0001703"
+        "url": "https://doi.org/10.1119/10.0001703",
+        "project": "landau-levels"
       },
       {
         "year": "2020",
         "title": "Investigation of the Electrical Properties of Microtubule Ensembles under Cell-Like Conditions",
         "authors": "A. P. Kalra, S. D. Patel, <strong>A. F. Bhuiyan</strong>, J. Preto, K. G. Scheuer, U. Mohammed, J. D. Lewis, V. Rezania, K. Shankar, and J. A. Tuszynski.",
         "venue": "Nanomaterials 10, 265 (2020).",
-        "url": "https://doi.org/10.3390/nano10020265"
+        "url": "https://doi.org/10.3390/nano10020265",
+        "project": "microtubules"
       }
     ]
   },
@@ -65,7 +85,7 @@
         "title": "Chiral critical state ensembles in topological adaptive quantum circuits",
         "authors": "<strong>A. Bhuiyan</strong>, H. Pan, and C.-M. Jian.",
         "venue": "Manuscript in preparation.",
-        "research": "/research/#ongoing"
+        "project": "ongoing"
       }
     ]
   }

@@ -9,11 +9,12 @@ production='--production' in sys.argv
 errors=[]
 class Page(HTMLParser):
  def __init__(self, text):
-  super().__init__();self.ids=[];self.links=[];self.images=[];self.h1=0;self.canonical=[];self.refresh=[];self.scripts=[];self.feed(text)
+  super().__init__();self.ids=[];self.links=[];self.images=[];self.h1=0;self.canonical=[];self.refresh=[];self.scripts=[];self.citations=[];self.feed(text)
  def handle_starttag(self,tag,attrs):
   d=dict(attrs)
   if 'id' in d:self.ids.append(d['id'])
   if tag=='h1':self.h1+=1
+  if d.get('class')=='publication-citation':self.citations.append((d.get('data-project'),d.get('data-status')))
   if tag=='img':self.images.append(d)
   if tag=='script':self.scripts.append(d)
   for key in ['href','src']:
@@ -51,18 +52,46 @@ for img in root.rglob('*.png'):
  check(header[:8]==b'\x89PNG\r\n\x1a\n',f'{img}: corrupt PNG')
 for path in ['index.html','research/index.html','publications/index.html','talks/index.html','about/index.html','cv/index.html','404.html','sitemap.xml','assets/files/Asadullah_Bhuiyan_CV.pdf','images/Headshot.jpg']:
  check((root/path).exists(),f'Missing required route or asset {path}')
-pub=(root/'publications/index.html').read_text();research=(root/'research/index.html').read_text();talks=(root/'talks/index.html').read_text()
-check(pub.count('class="publication-year"')==7,'Expected seven publication entries')
+research=(root/'research/index.html').read_text();talks=(root/'talks/index.html').read_text();home=(root/'index.html').read_text()
+pub=research
+expected_projects=['learning','quantum','ongoing','singular-potentials','periodically-driven','landau-levels','microtubules']
+citations=html[root/'research/index.html'].citations
+check([project for project,status in citations]==expected_projects,'Expected each publication exactly once, in project order')
+check(sum(status=='journal-articles' for project,status in citations)==5,'Expected five journal articles')
+check(sum(status=='preprints' for project,status in citations)==1,'Expected one preprint')
+check(sum(status=='in-preparation' for project,status in citations)==1,'Expected one manuscript in preparation')
+check('Selected research' not in home and '<figure' not in home,'Homepage must not repeat research projects')
+check(home.count('class="hero-note hero-intro"')==3,'Expected three homepage bio paragraphs')
+check('class="eyebrow"' not in home,'Homepage should not repeat affiliation eyebrow')
+check('aria-current="page">About</a>' in home,'About must be active on homepage')
+check('class="section-nav"' not in research and 'class="lead-copy"' not in research,'Research must not repeat bio or section navigation')
+for text in [home,research,talks]:
+ nav=text.split('id="site-nav"',1)[1].split('</nav>',1)[0]
+ labels=re.findall(r'<li><a[^>]*>([^<]+)',nav)
+ check(labels==['Research','Talks','CV','About'],'Wrong primary navigation')
+for anchor in ['learning','quantum','ongoing','bosonic','earlier']:
+ check(anchor in html[root/'research/index.html'].ids,f'Missing research anchor {anchor}')
+# Source data are authoritative for publication details; no duplicate citation copies.
+from html import unescape
+groups=json.loads((Path(__file__).resolve().parent.parent/'_data/publications.json').read_text())
+clean=lambda value:' '.join(unescape(re.sub('<[^>]+>','',value)).split())
+research_text=clean(research)
+for group in groups:
+ for paper in group['papers']:
+  for field in ['title','authors','venue']:
+   check(clean(paper[field]) in research_text,f'Missing citation {field}: {paper["project"]}')
+  for link in ([paper['url']] if paper.get('url') else [])+[link['url'] for link in paper.get('links',[])]:
+   check(link in html[root/'research/index.html'].links,f'Missing paper/code link {link}')
 for phrase in ['Learning from almost nothing','Free-Fermion Dynamics','pseudoharmonic oscillator','Schrödinger Cat States','Landau Levels','Microtubule Ensembles','Chiral critical state ensembles']:
  check(phrase in pub,f'Missing publication: {phrase}')
 check(research.count('<figure')==4,'Expected four flagship figures')
 check(research.count('<h3>My contributions</h3>')==2,'Expected contributions for both flagship projects')
 for date in ['2025-11-11','2025-03-19','2023-03-06']:check(date in talks,f'Missing talk {date}')
-for alias,target in {'year-archive':'/research/','talkmap.html':'/talks/','teaching':'/about/','resume':'/cv/','cv-json':'/cv/'}.items():
+for alias,target in {'year-archive':'/research/','talkmap.html':'/talks/','teaching':'/cv/','about':'/','publications':'/research/','resume':'/cv/','cv-json':'/cv/'}.items():
  p=root/alias
  if p.is_dir():p=p/'index.html'
  check(p in html and bool(html[p].refresh),f'Missing redirect {alias}')
- if p in html:check(any(target in x for x in html[p].refresh),f'Wrong redirect {alias}')
+ if p in html:check(any(urlsplit(x.split('url=',1)[-1]).path==target for x in html[p].refresh),f'Wrong redirect {alias}')
 check(len(list(root.rglob('*.pdf')))==1,'Unexpected PDF beyond approved CV')
 for private in ['docs','scripts','Documents','tmp','.git','README.md','Gemfile','Gemfile.lock','LICENSE']:
  check(not (root/private).exists(),f'Internal file exposed in build: {private}')
