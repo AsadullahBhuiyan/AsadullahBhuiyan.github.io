@@ -37,7 +37,7 @@
             "url": "https://arxiv.org/abs/2507.13437"
           },
           {
-            "label": "Related follow-up code",
+            "label": "Research code",
             "url": "https://github.com/AsadullahBhuiyan/class_A_fermionic_adaptive_circuit"
           }
         ]
@@ -85,7 +85,13 @@
         "title": "Chiral critical state ensembles in topological adaptive quantum circuits",
         "authors": "<strong>A. Bhuiyan</strong>, H. Pan, and C.-M. Jian.",
         "venue": "Manuscript in preparation.",
-        "project": "ongoing"
+        "project": "ongoing",
+        "links": [
+          {
+            "label": "Research code",
+            "url": "https://github.com/AsadullahBhuiyan/class_A_fermionic_adaptive_circuit"
+          }
+        ]
       }
     ]
   }
