@@ -650,3 +650,15 @@ a:visited { color: #821414; }
 .earlier-project h3 { font-size: 1.4rem; margin: 0 0 .65rem; }
 .earlier-project > p { margin: 0 0 1rem; }
 .earlier-project .publication-citation { margin-bottom: 0; }
+
+/* Compact CV-style bibliography; all rules are scoped to the homepage. */
+.home-bibliography { max-width: 940px; margin: 0 auto 2rem; padding-top: 2rem; border-top: 1px solid $line; }
+.home-bibliography h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.2; margin: 0 0 1.6rem; }
+.bibliography-group { margin: 1.4rem 0 0; }
+.bibliography-group h3 { font-size: 1.2rem; margin: 0 0 .7rem; }
+.bibliography-list { padding-left: 1.5rem; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1rem; line-height: 1.65; }
+.bibliography-list li { padding-left: .2rem; margin: 0 0 .8rem; overflow-wrap: anywhere; }
+.bibliography-list a { text-decoration: underline; text-decoration-thickness: 1px; }
+.bibliography-authors strong { font-weight: normal; text-decoration: underline; text-underline-offset: .15em; }
+.bibliography-list--unnumbered { padding-left: 0; list-style: none; }
+.bibliography-list--unnumbered li { padding-left: 0; }

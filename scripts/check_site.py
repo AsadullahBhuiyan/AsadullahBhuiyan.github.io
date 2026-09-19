@@ -76,10 +76,20 @@ from html import unescape
 groups=json.loads((Path(__file__).resolve().parent.parent/'_data/publications.json').read_text())
 clean=lambda value:' '.join(unescape(re.sub('<[^>]+>','',value)).split())
 research_text=clean(research)
+home_text=clean(home)
+expected_bibliography=[p['project'] for group in groups for p in group['papers']]
+home_projects=re.findall(r'class="bibliography-entry" data-project="([^"]+)"',home)
+check(home_projects==expected_bibliography,'Homepage bibliography must contain each shared citation once in CV order')
+check(re.findall(r'<ol class="bibliography-list" start="(\d+)"',home)==['1','2'],'Bibliography numbering must continue from preprint to journal articles')
+check('class="bibliography-list bibliography-list--unnumbered"' in home,'In-preparation bibliography must be unnumbered')
+check('class="publication-citation"' not in home,'Homepage must use compact references, not Research citation blocks')
 for group in groups:
  for paper in group['papers']:
   for field in ['title','authors','venue']:
+   check(clean(paper[field]) in home_text,f'Missing homepage citation {field}: {paper["project"]}')
    check(clean(paper[field]) in research_text,f'Missing citation {field}: {paper["project"]}')
+  if paper.get('note'):check(clean(paper['note']) in home_text,f'Missing homepage status: {paper["project"]}')
+  if paper.get('url'):check(paper['url'] in html[root/'index.html'].links,f'Missing homepage paper link: {paper["project"]}')
   for link in ([paper['url']] if paper.get('url') else [])+[link['url'] for link in paper.get('links',[])]:
    check(link in html[root/'research/index.html'].links,f'Missing paper/code link {link}')
 for phrase in ['Learning from almost nothing','Free-Fermion Dynamics','pseudoharmonic oscillator','Schrödinger Cat States','Landau Levels','Microtubule Ensembles','Chiral critical state ensembles']:

@@ -1,0 +1,26 @@
+<section id="publications" class="home-bibliography" aria-labelledby="bibliography-title">
+  <h2 id="bibliography-title">Publications and preprints</h2>
+  {% assign bibliography_number = 1 %}
+  {% for group in site.data.publications %}
+    {% unless group.papers == empty %}
+  <section class="bibliography-group" aria-labelledby="bibliography-{{ group.id }}">
+    <h3 id="bibliography-{{ group.id }}">{{ group.title }}</h3>
+    {% if group.id == 'in-preparation' %}
+    <ul class="bibliography-list bibliography-list--unnumbered">
+    {% else %}
+    <ol class="bibliography-list" start="{{ bibliography_number }}">
+    {% endif %}
+      {% for paper in group.papers %}
+      <li class="bibliography-entry" data-project="{{ paper.project }}">
+        <span class="bibliography-authors">{{ paper.authors }}</span>
+        {% if paper.url %}<a href="{{ paper.url }}">{{ paper.title }}</a>.{% else %}<em>{{ paper.title }}</em>.{% endif %}
+        <span class="bibliography-venue">{{ paper.venue }}</span>
+        {% if paper.note %}<span class="bibliography-note">{{ paper.note }}</span>{% endif %}
+      </li>
+      {% unless group.id == 'in-preparation' %}{% assign bibliography_number = bibliography_number | plus: 1 %}{% endunless %}
+      {% endfor %}
+    {% if group.id == 'in-preparation' %}</ul>{% else %}</ol>{% endif %}
+  </section>
+    {% endunless %}
+  {% endfor %}
+</section>
