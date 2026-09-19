@@ -1,6 +1,6 @@
 # Asadullah Bhuiyan — research website
 
-Jekyll site for https://asadullahbhuiyan.github.io. The homepage is About; Research combines project descriptions with the complete publication record. Navigation is Research · Talks · CV · About.
+Jekyll site for https://asadullahbhuiyan.github.io. The homepage is About; Research combines project descriptions with the complete publication record. The homepage also lists talks in CV format. Navigation is About · Research · CV.
 
 ## Preview locally
 
@@ -31,7 +31,7 @@ The theme styles are vendored from the reference repository at a recorded commit
 | Compact homepage bibliography layout | `_includes/bibliography.html` |
 | Research descriptions and personal contributions | `_pages/research.html` |
 | Publications, authors, venues, and statuses | `_data/publications.json` |
-| Talks and program links | `_pages/talks.html` |
+| Homepage talks, dates, and program links | `_data/talks.json` (layout: `_includes/talks.html`) |
 | Education, thesis, teaching, mentoring, and outreach | Maintain these in the CV PDF |
 | CV download | Replace `assets/files/Asadullah_Bhuiyan_CV.pdf`, keeping its name |
 | Figure images, captions, and source links | `assets/images/research/` and `_data/figures.json` |
@@ -46,6 +46,8 @@ CV buttons automatically include a build timestamp so that updated PDFs are requ
 
 The publication data are JSON; preserve valid quoting and commas. Author strings allow simple `<strong>` markup for the site owner's name. Each paper has a unique `project` identifier matching an include in `_pages/research.html`, for example `{% include project-citation.html project="learning" %}`. Edit citation titles, complete authorship, venues, and notes only in `_data/publications.json`; their status comes from the enclosing group. Move an accepted paper from the preprint group to the journal group and update its venue. The `url` is the paper-title link; optional `links` entries provide additional arXiv or code links. Keep each project citation include exactly once and do not duplicate metadata in research prose. The homepage bibliography reads the same data through `_includes/bibliography.html`: editing a citation updates both pages. It shows authors, linked title, venue/year, and any status note, without research summaries, figures, or code links. Groups and papers appear in their JSON order, matching the CV: preprint first, then journal articles, then the manuscript in preparation. Numbering continues across the preprint and journal groups (currently 1–6); in-preparation entries are unnumbered. Do not type citation copies or list numbers into `index.html`. New papers need a unique project identifier, a matching include, and an update to the expected publication records in `scripts/check_site.py`. Research figures have display and larger versions; maintain their aspect ratios and retain readable axes and labels. The figure link opens the larger version directly.
 
+Talks appear directly below the homepage bibliography in the order listed in `_data/talks.json` (newest first). Keep the venue, ISO date, display date, and title current. The optional `url` links the title to its official program; `note` is for brief labels such as an invited seminar.
+
 Voice: follow the learning-theory CV's direct, result-first wording. Use “we” for collective paper results and “I” for documented personal contributions. Keep exploratory interests and ongoing results distinct from completed work. Avoid promotional taglines and inflated claims.
 
 ## Review and publication
@@ -58,6 +60,6 @@ The annotated record in `docs/PROVENANCE.md` identifies the baseline and referen
 
 ## Compatibility and credits
 
-`/publications/` redirects to `/research/`, `/about/` redirects to the homepage, and `/teaching/` redirects to `/cv/`. `/talks/` and `/cv/` remain. `/resume`, `/resume/`, and `/cv-json/` lead to the CV page; `/year-archive/` leads to Research; `/talkmap.html` leads to Talks. The old portrait URL remains available. Removed example posts, fake CV entries, and sample paper/slide PDFs were template content, not the owner's research.
+`/publications/` redirects to `/research/`, `/about/` redirects to the homepage, and `/teaching/` redirects to `/cv/`. `/talks/` and `/talkmap.html` redirect directly to `/#talks`; `/cv/` remains. `/resume`, `/resume/`, and `/cv-json/` lead to the CV page; `/year-archive/` leads to Research. The old portrait URL remains available. Removed example posts, fake CV entries, and sample paper/slide PDFs were template content, not the owner's research.
 
 The design is adapted from Hyejin Kim's site and the MIT-licensed Minimal Mistakes theme by Michael Rose and contributors. Source provenance is retained in this repository; the visible design-adaptation credit was removed at the owner's request. Preserve the theme license. Profile icons come from Bootstrap Icons v1.13.1; their MIT license is included in `_includes/profile-links.html`. Research figures belong to their respective paper authors; links identify the source papers. This site contains no comments, analytics, contact-form backend, or externally loaded JavaScript.

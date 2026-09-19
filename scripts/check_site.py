@@ -65,10 +65,10 @@ check(home.count('class="hero-note hero-intro"')==3,'Expected three homepage bio
 check('class="eyebrow"' not in home,'Homepage should not repeat affiliation eyebrow')
 check('aria-current="page">About</a>' in home,'About must be active on homepage')
 check('class="section-nav"' not in research and 'class="lead-copy"' not in research,'Research must not repeat bio or section navigation')
-for text in [home,research,talks]:
+for text in [home,research]:
  nav=text.split('id="site-nav"',1)[1].split('</nav>',1)[0]
  labels=re.findall(r'<li><a[^>]*>([^<]+)',nav)
- check(labels==['Research','Talks','CV','About'],'Wrong primary navigation')
+ check(labels==['About','Research','CV'],'Wrong primary navigation')
 for anchor in ['learning','quantum','ongoing','bosonic','earlier']:
  check(anchor in html[root/'research/index.html'].ids,f'Missing research anchor {anchor}')
 # Source data are authoritative for publication details; no duplicate citation copies.
@@ -96,12 +96,18 @@ for phrase in ['Learning from almost nothing','Free-Fermion Dynamics','pseudohar
  check(phrase in pub,f'Missing publication: {phrase}')
 check(research.count('<figure')==4,'Expected four flagship figures')
 check(research.count('<h3>My contributions</h3>')==2,'Expected contributions for both flagship projects')
-for date in ['2025-11-11','2025-03-19','2023-03-06']:check(date in talks,f'Missing talk {date}')
-for alias,target in {'year-archive':'/research/','talkmap.html':'/talks/','teaching':'/cv/','about':'/','publications':'/research/','resume':'/cv/','cv-json':'/cv/'}.items():
+for date in ['2025-11-11','2025-03-19','2023-03-06']:check(date in home,f'Missing homepage talk {date}')
+check(home.index('id="publications"')<home.index('id="talks"'),'Talks must follow the homepage bibliography')
+check('id="talks"' not in research,'Talks must live on About, not Research')
+for talk in json.loads((Path(__file__).resolve().parent.parent/'_data/talks.json').read_text()):
+ for field in ['venue','title','display_date']:
+  check(clean(talk[field]) in home_text,f'Missing homepage talk {field}: {talk["date"]}')
+ if talk.get('url'):check(talk['url'] in html[root/'index.html'].links,f'Missing talk program {talk["date"]}')
+for alias,target in {'year-archive':'/research/','talkmap.html':'/#talks','talks':'/#talks','teaching':'/cv/','about':'/','publications':'/research/','resume':'/cv/','cv-json':'/cv/'}.items():
  p=root/alias
  if p.is_dir():p=p/'index.html'
  check(p in html and bool(html[p].refresh),f'Missing redirect {alias}')
- if p in html:check(any(urlsplit(x.split('url=',1)[-1]).path==target for x in html[p].refresh),f'Wrong redirect {alias}')
+ if p in html:check(any((lambda u: u.path+('#'+u.fragment if u.fragment else ''))(urlsplit(x.split('url=',1)[-1]))==target for x in html[p].refresh),f'Wrong redirect {alias}')
 check(len(list(root.rglob('*.pdf')))==1,'Unexpected PDF beyond approved CV')
 for private in ['docs','scripts','Documents','tmp','.git','README.md','Gemfile','Gemfile.lock','LICENSE']:
  check(not (root/private).exists(),f'Internal file exposed in build: {private}')

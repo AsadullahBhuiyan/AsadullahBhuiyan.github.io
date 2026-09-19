@@ -1,0 +1,23 @@
+[
+  {
+    "venue": "Quantum Nano Seminar, Dartmouth College",
+    "date": "2025-11-11",
+    "display_date": "11 Nov 2025",
+    "title": "Fermionic Monitored Dynamical Systems: Topological Classification & Adaptive Circuit Constructions",
+    "note": "Invited research seminar."
+  },
+  {
+    "venue": "APS March Meeting, Anaheim",
+    "date": "2025-03-19",
+    "display_date": "19 Mar 2025",
+    "title": "Topological Modes in Monitored Dynamics",
+    "url": "https://meetings-archive.aps.org/smt/2025/mar-n29/8/"
+  },
+  {
+    "venue": "APS March Meeting, Las Vegas",
+    "date": "2023-03-06",
+    "display_date": "6 Mar 2023",
+    "title": "Free Bosons Purify Faster than Free Fermions in 0D",
+    "url": "https://meetings-archive.aps.org/mar/2023/d33/2/"
+  }
+]

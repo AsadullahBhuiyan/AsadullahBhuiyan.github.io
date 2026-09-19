@@ -1,0 +1,12 @@
+<section id="talks" class="home-talks" aria-labelledby="talks-title">
+  <h2 id="talks-title">Talks</h2>
+  <ul class="cv-talks">
+    {% for talk in site.data.talks %}
+    <li>
+      <div class="cv-talk-heading"><h3>{{ talk.venue | escape }}</h3><time datetime="{{ talk.date }}">{{ talk.display_date }}</time></div>
+      <p class="cv-talk-title"><em>{% if talk.url %}<a href="{{ talk.url }}">{{ talk.title | escape }}</a>{% else %}{{ talk.title | escape }}{% endif %}.</em></p>
+      {% if talk.note %}<p>{{ talk.note }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>

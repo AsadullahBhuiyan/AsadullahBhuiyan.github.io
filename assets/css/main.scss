@@ -662,3 +662,18 @@ a:visited { color: #821414; }
 .bibliography-authors strong { font-weight: normal; text-decoration: underline; text-underline-offset: .15em; }
 .bibliography-list--unnumbered { padding-left: 0; list-style: none; }
 .bibliography-list--unnumbered li { padding-left: 0; }
+
+/* Talks mirror the CV: venue/date, title, and an optional short note. */
+.home-talks { max-width: 940px; margin: 3rem auto 2rem; padding-top: 2rem; border-top: 1px solid $line; }
+.home-talks > h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); margin: 0 0 1.6rem; }
+.cv-talks { list-style: none; padding: 0; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 1rem; line-height: 1.65; }
+.cv-talks li { margin: 0 0 1.3rem; }
+.cv-talk-heading { display: flex; align-items: baseline; justify-content: space-between; gap: .5rem 1.5rem; }
+.cv-talk-heading h3 { font-size: 1rem; letter-spacing: 0; margin: 0; }
+.cv-talk-heading time { white-space: nowrap; }
+.cv-talks p { margin: .2rem 0 0; }
+.cv-talk-title a { text-decoration: underline; text-decoration-thickness: 1px; }
+@media (max-width: 600px) {
+ .cv-talk-heading { display: block; }
+ .cv-talk-heading time { display: block; color: $muted; font-size: .9rem; }
+}

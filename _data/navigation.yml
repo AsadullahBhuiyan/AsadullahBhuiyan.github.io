@@ -1,9 +1,7 @@
 main:
-  - title: Research
-    url: /research/
-  - title: Talks
-    url: /talks/
-  - title: CV
-    url: /assets/files/Asadullah_Bhuiyan_CV.pdf
   - title: About
     url: /
+  - title: Research
+    url: /research/
+  - title: CV
+    url: /assets/files/Asadullah_Bhuiyan_CV.pdf
