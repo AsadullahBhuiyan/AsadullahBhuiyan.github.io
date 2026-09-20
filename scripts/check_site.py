@@ -57,9 +57,13 @@ pub=research
 expected_projects=['learning','quantum','ongoing','singular-potentials','periodically-driven','landau-levels','microtubules']
 citations=html[root/'research/index.html'].citations
 check([project for project,status in citations]==expected_projects,'Expected each publication exactly once, in project order')
-check(sum(status=='journal-articles' for project,status in citations)==5,'Expected five journal articles')
-check(sum(status=='preprints' for project,status in citations)==1,'Expected one preprint')
+check(sum(status=='journal-articles' for project,status in citations)==6,'Expected six accepted or published journal articles')
+check(sum(status=='preprints' for project,status in citations)==0,'Expected no unaccepted preprints')
 check(sum(status=='in-preparation' for project,status in citations)==1,'Expected one manuscript in preparation')
+check(('learning','journal-articles') in citations,'Learning paper must be in journal articles')
+for content in [home,research]:
+ check('under review' not in content.lower(),'Obsolete under-review status')
+ check('Physical Review Research (accepted, 2026).' in content,'Missing PRR acceptance status')
 check('Selected research' not in home and '<figure' not in home,'Homepage must not repeat research projects')
 check(home.count('class="hero-note hero-intro"')==3,'Expected three homepage bio paragraphs')
 check('class="eyebrow"' not in home,'Homepage should not repeat affiliation eyebrow')
@@ -80,7 +84,7 @@ home_text=clean(home)
 expected_bibliography=[p['project'] for group in groups for p in group['papers']]
 home_projects=re.findall(r'class="bibliography-entry" data-project="([^"]+)"',home)
 check(home_projects==expected_bibliography,'Homepage bibliography must contain each shared citation once in CV order')
-check(re.findall(r'<ol class="bibliography-list" start="(\d+)"',home)==['1','2'],'Bibliography numbering must continue from preprint to journal articles')
+check(re.findall(r'<ol class="bibliography-list" start="(\d+)"',home)==['1'],'Journal bibliography must begin at 1')
 check('class="bibliography-list bibliography-list--unnumbered"' in home,'In-preparation bibliography must be unnumbered')
 check('class="publication-citation"' not in home,'Homepage must use compact references, not Research citation blocks')
 for group in groups:

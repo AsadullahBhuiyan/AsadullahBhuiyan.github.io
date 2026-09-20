@@ -2,7 +2,7 @@
   {% for paper in group.papers %}
     {% if paper.project == include.project %}
 <div class="publication-citation" data-project="{{ paper.project }}" data-status="{{ group.id }}">
-  <p class="citation-status">{% if group.id == 'journal-articles' %}Peer-reviewed article{% elsif group.id == 'in-preparation' %}{{ paper.venue }}{% else %}{{ group.title }}{% endif %}</p>
+  <p class="citation-status">{% if paper.status %}{{ paper.status }}{% elsif group.id == 'journal-articles' %}Peer-reviewed article{% elsif group.id == 'in-preparation' %}{{ paper.venue }}{% else %}{{ group.title }}{% endif %}</p>
   <p class="citation-title">{% if paper.url %}<a href="{{ paper.url }}">{{ paper.title }}</a>{% else %}{{ paper.title }}{% endif %}</p>
   <p class="publication-authors">{{ paper.authors }}</p>
   {% unless group.id == 'in-preparation' %}<p class="publication-venue">{{ paper.venue }}</p>{% endunless %}

@@ -2,13 +2,18 @@
   {
     "id": "preprints",
     "title": "Preprint",
+    "papers": []
+  },
+  {
+    "id": "journal-articles",
+    "title": "Peer-reviewed journal articles",
     "papers": [
       {
         "year": "2026",
         "title": "Learning from almost nothing: How neural networks survive heavy input corruption",
         "authors": "J. Tahmassebpur, <strong>A. Bhuiyan</strong>, H. Kim, and O. Lesser.",
-        "venue": "arXiv:2606.11319 (2026).",
-        "note": "Under review at Physical Review Research.",
+        "venue": "Physical Review Research (accepted, 2026).",
+        "note": "arXiv:2606.11319.",
         "url": "https://arxiv.org/abs/2606.11319",
         "project": "learning",
         "links": [
@@ -16,14 +21,9 @@
             "label": "Research code",
             "url": "https://github.com/AsadullahBhuiyan/noisy_neural_networks"
           }
-        ]
-      }
-    ]
-  },
-  {
-    "id": "journal-articles",
-    "title": "Peer-reviewed journal articles",
-    "papers": [
+        ],
+        "status": "Accepted article"
+      },
       {
         "year": "2026",
         "title": "Free-Fermion Dynamics with Measurements: Topological Classification and Adaptive Preparation of Topological States",
