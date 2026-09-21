@@ -1,3 +1,6 @@
+Leftover brackets from the deleted object were still at the end, along with a trailing comma after the journal-articles group. Here's the corrected file:
+
+```json
 [
   {
     "id": "preprints",
@@ -73,25 +76,6 @@
         "venue": "Nanomaterials 10, 265 (2020).",
         "url": "https://doi.org/10.3390/nano10020265",
         "project": "microtubules"
-      }
-    ]
-  },
-  {
-    "id": "in-preparation",
-    "title": "Manuscript in preparation",
-    "papers": [
-      {
-        "year": "In prep.",
-        "title": "Chiral critical state ensembles in topological adaptive quantum circuits",
-        "authors": "<strong>A. Bhuiyan</strong>, H. Pan, and C.-M. Jian.",
-        "venue": "Manuscript in preparation.",
-        "project": "ongoing",
-        "links": [
-          {
-            "label": "Research code",
-            "url": "https://github.com/AsadullahBhuiyan/class_A_fermionic_adaptive_circuit"
-          }
-        ]
       }
     ]
   }
