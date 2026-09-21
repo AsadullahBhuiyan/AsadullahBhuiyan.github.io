@@ -54,12 +54,12 @@ for path in ['index.html','research/index.html','publications/index.html','talks
  check((root/path).exists(),f'Missing required route or asset {path}')
 research=(root/'research/index.html').read_text();talks=(root/'talks/index.html').read_text();home=(root/'index.html').read_text()
 pub=research
-expected_projects=['learning','quantum','ongoing','singular-potentials','periodically-driven','landau-levels','microtubules']
+expected_projects=['learning','quantum','singular-potentials','periodically-driven','landau-levels','microtubules']
 citations=html[root/'research/index.html'].citations
 check([project for project,status in citations]==expected_projects,'Expected each publication exactly once, in project order')
 check(sum(status=='journal-articles' for project,status in citations)==6,'Expected six accepted or published journal articles')
 check(sum(status=='preprints' for project,status in citations)==0,'Expected no unaccepted preprints')
-check(sum(status=='in-preparation' for project,status in citations)==1,'Expected one manuscript in preparation')
+check(sum(status=='in-preparation' for project,status in citations)==0,'Expected no manuscripts in preparation')
 check(('learning','journal-articles') in citations,'Learning paper must be in journal articles')
 for content in [home,research]:
  check('under review' not in content.lower(),'Obsolete under-review status')
@@ -73,7 +73,7 @@ for text in [home,research]:
  nav=text.split('id="site-nav"',1)[1].split('</nav>',1)[0]
  labels=re.findall(r'<li><a[^>]*>([^<]+)',nav)
  check(labels==['About','Research','CV'],'Wrong primary navigation')
-for anchor in ['learning','quantum','ongoing','bosonic','earlier']:
+for anchor in ['learning','quantum','bosonic','earlier']:
  check(anchor in html[root/'research/index.html'].ids,f'Missing research anchor {anchor}')
 # Source data are authoritative for publication details; no duplicate citation copies.
 from html import unescape
@@ -85,7 +85,6 @@ expected_bibliography=[p['project'] for group in groups for p in group['papers']
 home_projects=re.findall(r'class="bibliography-entry" data-project="([^"]+)"',home)
 check(home_projects==expected_bibliography,'Homepage bibliography must contain each shared citation once in CV order')
 check(re.findall(r'<ol class="bibliography-list" start="(\d+)"',home)==['1'],'Journal bibliography must begin at 1')
-check('class="bibliography-list bibliography-list--unnumbered"' in home,'In-preparation bibliography must be unnumbered')
 check('class="publication-citation"' not in home,'Homepage must use compact references, not Research citation blocks')
 for group in groups:
  for paper in group['papers']:
@@ -96,7 +95,7 @@ for group in groups:
   if paper.get('url'):check(paper['url'] in html[root/'index.html'].links,f'Missing homepage paper link: {paper["project"]}')
   for link in ([paper['url']] if paper.get('url') else [])+[link['url'] for link in paper.get('links',[])]:
    check(link in html[root/'research/index.html'].links,f'Missing paper/code link {link}')
-for phrase in ['Learning from almost nothing','Free-Fermion Dynamics','pseudoharmonic oscillator','Schrödinger Cat States','Landau Levels','Microtubule Ensembles','Chiral critical state ensembles']:
+for phrase in ['Learning from almost nothing','Free-Fermion Dynamics','pseudoharmonic oscillator','Schrödinger Cat States','Landau Levels','Microtubule Ensembles']:
  check(phrase in pub,f'Missing publication: {phrase}')
 check(research.count('<figure')==4,'Expected four flagship figures')
 check(research.count('<h3>My contributions</h3>')==2,'Expected contributions for both flagship projects')
@@ -115,5 +114,5 @@ for alias,target in {'year-archive':'/research/','talkmap.html':'/#talks','talks
 check(len(list(root.rglob('*.pdf')))==1,'Unexpected PDF beyond approved CV')
 for private in ['docs','scripts','Documents','tmp','.git','README.md','Gemfile','Gemfile.lock','LICENSE']:
  check(not (root/private).exists(),f'Internal file exposed in build: {private}')
-print(json.dumps({'html_pages':len(html),'local_links_checked':checked_links,'publication_entries':7,'research_figures':4,'errors':errors},indent=2))
+print(json.dumps({'html_pages':len(html),'local_links_checked':checked_links,'publication_entries':len(expected_bibliography),'research_figures':4,'errors':errors},indent=2))
 sys.exit(bool(errors))
