@@ -1,6 +1,4 @@
-Leftover brackets from the deleted object were still at the end, along with a trailing comma after the journal-articles group. Here's the corrected file:
 
-```json
 [
   {
     "id": "preprints",
