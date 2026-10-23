@@ -61,14 +61,14 @@ for file,parsed in html.items():
  text=file.read_text()
  nav=text.split('id="site-nav"',1)[1].split('</nav>',1)[0]
  labels=re.findall(r'<li><a[^>]*>([^<]+)',nav)
- check(labels==['Publications','Talks','Research','CV'],'Wrong primary navigation')
+ check(labels==['Research','Publications','Talks','CV'],'Wrong primary navigation')
  for target in ['/#publications','/#talks','/#research']:
   check(target in nav,f'Missing navigation target {target}')
 check('aria-current="page"' not in home,'Section navigation must not mark an entire page active')
 for anchor in ['publications','talks','research','learning','quantum']:
  check(anchor in page.ids,f'Missing homepage anchor {anchor}')
-check(home.index('id="publications"')<home.index('id="talks"')<home.index('id="research"'),'Wrong homepage section order')
-for stale in ['My contributions','publication-citation','id="ongoing"','id="bosonic"','id="earlier"','id="hubbard-holstein"','under review','accepted, 2026','Accepted article']:
+check(home.index('id="research"')<home.index('id="publications"')<home.index('id="talks"'),'Wrong homepage section order')
+for stale in ['Explore my research','My contributions','publication-citation','id="ongoing"','id="bosonic"','id="earlier"','id="hubbard-holstein"','under review','accepted, 2026','Accepted article']:
  check(stale not in home,f'Retired or obsolete homepage content: {stale}')
 check(home.count('<figure')==2,'Expected two highlight figures')
 check(home.count('class="research-highlight"')==2,'Expected two research highlights')

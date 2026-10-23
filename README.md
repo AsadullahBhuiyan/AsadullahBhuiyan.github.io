@@ -1,6 +1,6 @@
 # Asadullah Bhuiyan — research website
 
-Jekyll site for https://asadullahbhuiyan.github.io. A single homepage contains the introduction, complete publication record, talks in CV format, and two research highlights, in that order. Navigation is Publications · Talks · Research · CV; the first three jump to homepage sections, and CV opens the PDF.
+Jekyll site for https://asadullahbhuiyan.github.io. A single homepage contains the introduction, two research highlights, complete publication record, and talks in CV format, in that order. Navigation is Research · Publications · Talks · CV; the first three jump to homepage sections, and CV opens the PDF.
 
 ## Preview locally
 
@@ -48,7 +48,7 @@ The publication data are JSON; preserve valid quoting and commas. Edit titles, a
 
 Each paper's `project` identifier is stable. The highlight link include (`_includes/research-links.html`) uses `learning` or `quantum` to obtain the main `url` and the link labeled `Research code` from the same publication data. Once published, use the final title, journal details, and DOI as the main URL; arXiv can remain in supplemental links. New publication entries require an update to the expected record in `scripts/check_site.py`.
 
-The highlights follow Talks. Each has two explanatory paragraphs, one figure, and paper/code links. Use `learning_robustness` and `quantum_classification` from `_data/figures.json`; keep scientific scope and experimental settings clear. Captions, source links, alt text, and full-size images are managed there. Historical figure files remain available for previously shared direct image URLs, but are not rendered as extra figures. Contribution lists and other project descriptions belong in the CV rather than on the homepage.
+The highlights follow the introduction, whose only action button opens the CV. Each has two explanatory paragraphs, one figure, and paper/code links. Use `learning_robustness` and `quantum_classification` from `_data/figures.json`; keep scientific scope and experimental settings clear. Captions, source links, alt text, and full-size images are managed there. Historical figure files remain available for previously shared direct image URLs, but are not rendered as extra figures. Contribution lists and other project descriptions belong in the CV rather than on the homepage.
 
 Talks appear directly below the homepage bibliography in the order listed in `_data/talks.json` (newest first). Keep the venue, ISO date, display date, and title current. The optional `url` links the title to its official program; `note` is for brief labels such as an invited seminar.
 
