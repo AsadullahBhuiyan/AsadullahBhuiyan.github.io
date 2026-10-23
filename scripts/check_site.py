@@ -52,69 +52,75 @@ for img in root.rglob('*.png'):
  check(header[:8]==b'\x89PNG\r\n\x1a\n',f'{img}: corrupt PNG')
 for path in ['index.html','research/index.html','publications/index.html','talks/index.html','about/index.html','cv/index.html','404.html','sitemap.xml','assets/files/Asadullah_Bhuiyan_CV.pdf','images/Headshot.jpg']:
  check((root/path).exists(),f'Missing required route or asset {path}')
-research=(root/'research/index.html').read_text();talks=(root/'talks/index.html').read_text();home=(root/'index.html').read_text()
-pub=research
-expected_projects=['learning','quantum','singular-potentials','periodically-driven','landau-levels','microtubules']
-citations=html[root/'research/index.html'].citations
-check([project for project,status in citations]==expected_projects,'Expected each publication exactly once, in project order')
-check(sum(status=='journal-articles' for project,status in citations)==6,'Expected six published journal articles')
-check(sum(status=='preprints' for project,status in citations)==0,'Expected no preprints')
-check(sum(status=='in-preparation' for project,status in citations)==0,'Expected no manuscripts in preparation')
-check(('learning','journal-articles') in citations,'Learning paper must be in journal articles')
-for content in [home,research]:
- check('under review' not in content.lower(),'Obsolete under-review status')
- check('accepted, 2026' not in content and 'Accepted article' not in content,'Obsolete acceptance status')
- check('Physical Review Research 8, 043088 (2026).' in content,'Missing published learning-paper citation')
- check('https://doi.org/10.1103/qkrg-wbbj' in content,'Missing published learning-paper DOI')
-check('Selected research' not in home and '<figure' not in home,'Homepage must not repeat research projects')
+home=(root/'index.html').read_text()
+page=html[root/'index.html']
 check(home.count('class="hero-note hero-intro"')==3,'Expected three homepage bio paragraphs')
 check('class="eyebrow"' not in home,'Homepage should not repeat affiliation eyebrow')
-check('aria-current="page">About</a>' in home,'About must be active on homepage')
-check('class="section-nav"' not in research and 'class="lead-copy"' not in research,'Research must not repeat bio or section navigation')
-for text in [home,research]:
+for file,parsed in html.items():
+ if parsed.refresh:continue
+ text=file.read_text()
  nav=text.split('id="site-nav"',1)[1].split('</nav>',1)[0]
  labels=re.findall(r'<li><a[^>]*>([^<]+)',nav)
- check(labels==['About','Research','CV'],'Wrong primary navigation')
-for anchor in ['learning','quantum','bosonic','earlier']:
- check(anchor in html[root/'research/index.html'].ids,f'Missing research anchor {anchor}')
-# Source data are authoritative for publication details; no duplicate citation copies.
+ check(labels==['Publications','Talks','Research','CV'],'Wrong primary navigation')
+ for target in ['/#publications','/#talks','/#research']:
+  check(target in nav,f'Missing navigation target {target}')
+check('aria-current="page"' not in home,'Section navigation must not mark an entire page active')
+for anchor in ['publications','talks','research','learning','quantum']:
+ check(anchor in page.ids,f'Missing homepage anchor {anchor}')
+check(home.index('id="publications"')<home.index('id="talks"')<home.index('id="research"'),'Wrong homepage section order')
+for stale in ['My contributions','publication-citation','id="ongoing"','id="bosonic"','id="earlier"','id="hubbard-holstein"','under review','accepted, 2026','Accepted article']:
+ check(stale not in home,f'Retired or obsolete homepage content: {stale}')
+check(home.count('<figure')==2,'Expected two highlight figures')
+check(home.count('class="research-highlight"')==2,'Expected two research highlights')
+for heading in ['Analytic theory of neural-network learning under input corruption','Topology and entropy in monitored quantum dynamics']:
+ check(heading in home,f'Missing highlight heading: {heading}')
+check('high-noise, infinite-width limit' in home,'Missing scope of learning result')
+for figure in ['learning-robustness.png','quantum-classification.png']:
+ check(any(i.get('src','').endswith(figure) for i in page.images),f'Missing highlight figure {figure}')
+for figure in ['learning-theory.png','quantum-protocol.png']:
+ check(not any(i.get('src','').endswith(figure) for i in page.images),f'Unexpected extra figure {figure}')
+# The bibliography is the only full citation record; highlights share its links.
 from html import unescape
 groups=json.loads((Path(__file__).resolve().parent.parent/'_data/publications.json').read_text())
 clean=lambda value:' '.join(unescape(re.sub('<[^>]+>','',value)).split())
-research_text=clean(research)
 home_text=clean(home)
 expected_bibliography=[p['project'] for group in groups for p in group['papers']]
 home_projects=re.findall(r'class="bibliography-entry" data-project="([^"]+)"',home)
-check(home_projects==expected_bibliography,'Homepage bibliography must contain each shared citation once in CV order')
+check(home_projects==expected_bibliography,'Homepage bibliography must contain each shared citation once in data order')
+check(len(home_projects)==6,'Expected six publication entries')
 check(re.findall(r'<ol class="bibliography-list" start="(\d+)"',home)==['1'],'Journal bibliography must begin at 1')
-check('class="publication-citation"' not in home,'Homepage must use compact references, not Research citation blocks')
 for group in groups:
  for paper in group['papers']:
   for field in ['title','authors','venue']:
-   check(clean(paper[field]) in home_text,f'Missing homepage citation {field}: {paper["project"]}')
-   check(clean(paper[field]) in research_text,f'Missing citation {field}: {paper["project"]}')
-  if paper.get('note'):check(clean(paper['note']) in home_text,f'Missing homepage status: {paper["project"]}')
-  if paper.get('url'):check(paper['url'] in html[root/'index.html'].links,f'Missing homepage paper link: {paper["project"]}')
-  for link in ([paper['url']] if paper.get('url') else [])+[link['url'] for link in paper.get('links',[])]:
-   check(link in html[root/'research/index.html'].links,f'Missing paper/code link {link}')
-for phrase in ['Neural networks become centroid classifiers','Free-Fermion Dynamics','pseudoharmonic oscillator','Schrödinger Cat States','Landau Levels','Microtubule Ensembles']:
- check(phrase in pub,f'Missing publication: {phrase}')
-check(research.count('<figure')==4,'Expected four flagship figures')
-check(research.count('<h3>My contributions</h3>')==2,'Expected contributions for both flagship projects')
-for date in ['2025-11-11','2025-03-19','2023-03-06']:check(date in home,f'Missing homepage talk {date}')
-check(home.index('id="publications"')<home.index('id="talks"'),'Talks must follow the homepage bibliography')
-check('id="talks"' not in research,'Talks must live on About, not Research')
-for talk in json.loads((Path(__file__).resolve().parent.parent/'_data/talks.json').read_text()):
+   check(clean(paper[field]) in home_text,f'Missing citation {field}: {paper["project"]}')
+  check(home_text.count(clean(paper['title']))==1,f'Duplicate full citation: {paper["project"]}')
+  if paper.get('note'):check(clean(paper['note']) in home_text,f'Missing publication status: {paper["project"]}')
+  if paper.get('url'):check(paper['url'] in page.links,f'Missing paper link: {paper["project"]}')
+  if paper['project'] in ['learning','quantum']:
+   section=home.split('id="'+paper['project']+'"',1)[1].split('</section>',1)[0]
+   check(paper['url'] in section and 'Read the paper' in section,f'Missing highlight paper link: {paper["project"]}')
+   for link in paper.get('links',[]):
+    if link['label']=='Research code':check(link['url'] in section,f'Missing highlight code link: {paper["project"]}')
+check('Physical Review Research 8, 043088 (2026).' in home,'Missing published learning citation')
+check('https://doi.org/10.1103/qkrg-wbbj' in page.links,'Missing published learning DOI')
+talks=json.loads((Path(__file__).resolve().parent.parent/'_data/talks.json').read_text())
+check(len(talks)==3 and home.count('<time datetime=')==3,'Expected three talks')
+for talk in talks:
  for field in ['venue','title','display_date']:
-  check(clean(talk[field]) in home_text,f'Missing homepage talk {field}: {talk["date"]}')
- if talk.get('url'):check(talk['url'] in html[root/'index.html'].links,f'Missing talk program {talk["date"]}')
-for alias,target in {'year-archive':'/research/','talkmap.html':'/#talks','talks':'/#talks','teaching':'/cv/','about':'/','publications':'/research/','resume':'/cv/','cv-json':'/cv/'}.items():
+  check(clean(talk[field]) in home_text,f'Missing talk {field}: {talk["date"]}')
+ if talk.get('url'):check(talk['url'] in page.links,f'Missing talk program {talk["date"]}')
+for alias,target in {'research':'/#research','year-archive':'/#research','talkmap.html':'/#talks','talks':'/#talks','teaching':'/cv/','about':'/','publications':'/#publications','resume':'/cv/','cv-json':'/cv/'}.items():
  p=root/alias
  if p.is_dir():p=p/'index.html'
  check(p in html and bool(html[p].refresh),f'Missing redirect {alias}')
  if p in html:check(any((lambda u: u.path+('#'+u.fragment if u.fragment else ''))(urlsplit(x.split('url=',1)[-1]))==target for x in html[p].refresh),f'Wrong redirect {alias}')
+research=(root/'research/index.html').read_text()
+check("['#learning', '#quantum']" in research and 'window.location.replace' in research,'Missing legacy research fragment forwarding')
+check('research-highlight' not in research,'Legacy Research must not render old content')
+for profile in ['scholar.google.com','github.com/AsadullahBhuiyan','linkedin.com/in/asadullah-bhuiyan','mailto:ab2398@cornell.edu']:
+ check(any(profile in link for link in page.links),f'Missing professional profile {profile}')
 check(len(list(root.rglob('*.pdf')))==1,'Unexpected PDF beyond approved CV')
 for private in ['docs','scripts','Documents','tmp','.git','README.md','Gemfile','Gemfile.lock','LICENSE']:
  check(not (root/private).exists(),f'Internal file exposed in build: {private}')
-print(json.dumps({'html_pages':len(html),'local_links_checked':checked_links,'publication_entries':len(expected_bibliography),'research_figures':4,'errors':errors},indent=2))
+print(json.dumps({'html_pages':len(html),'local_links_checked':checked_links,'publication_entries':len(expected_bibliography),'research_figures':home.count('<figure'),'errors':errors},indent=2))
 sys.exit(bool(errors))

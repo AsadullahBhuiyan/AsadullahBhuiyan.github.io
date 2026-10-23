@@ -1,0 +1,7 @@
+{% for group in site.data.publications %}
+  {% for paper in group.papers %}
+    {% if paper.project == include.project %}
+    <p class="text-links research-links"><a href="{{ paper.url }}">Read the paper</a>{% for link in paper.links %}{% if link.label == 'Research code' %}<a href="{{ link.url }}">Research code</a>{% endif %}{% endfor %}</p>
+    {% endif %}
+  {% endfor %}
+{% endfor %}

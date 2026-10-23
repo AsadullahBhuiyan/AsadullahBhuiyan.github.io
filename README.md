@@ -1,6 +1,6 @@
 # Asadullah Bhuiyan — research website
 
-Jekyll site for https://asadullahbhuiyan.github.io. The homepage is About; Research combines project descriptions with the complete publication record. The homepage also lists talks in CV format. Navigation is About · Research · CV.
+Jekyll site for https://asadullahbhuiyan.github.io. A single homepage contains the introduction, complete publication record, talks in CV format, and two research highlights, in that order. Navigation is Publications · Talks · Research · CV; the first three jump to homepage sections, and CV opens the PDF.
 
 ## Preview locally
 
@@ -29,7 +29,7 @@ The theme styles are vendored from the reference repository at a recorded commit
 |---|---|
 | Homepage / About introduction | `index.html` |
 | Compact homepage bibliography layout | `_includes/bibliography.html` |
-| Research descriptions and personal contributions | `_pages/research.html` |
+| Two concise research highlights | `_includes/research-highlights.html` |
 | Publications, authors, venues, and statuses | `_data/publications.json` |
 | Homepage talks, dates, and program links | `_data/talks.json` (layout: `_includes/talks.html`) |
 | Education, thesis, teaching, mentoring, and outreach | Maintain these in the CV PDF |
@@ -44,7 +44,11 @@ The theme styles are vendored from the reference repository at a recorded commit
 
 CV buttons automatically include a build timestamp so that updated PDFs are requested fresh instead of reusing a previously cached download. The underlying PDF address remains stable.
 
-The publication data are JSON; preserve valid quoting and commas. Author strings allow simple `<strong>` markup for the site owner's name. Each paper has a unique `project` identifier matching an include in `_pages/research.html`, for example `{% include project-citation.html project="learning" %}`. Edit citation titles, complete authorship, venues, and notes only in `_data/publications.json`; their category comes from the enclosing group; an optional `status` overrides the Research badge (for example, "Accepted article"). Move an accepted paper from the preprint group to the journal group and mark the venue as accepted until publication details are available. Once published, use the final paper title, journal volume and article number, and DOI as the main link; retain arXiv as a supplemental link and update any status override to "Published article". The `url` is the paper-title link; optional `links` entries provide additional arXiv or code links. Keep each project citation include exactly once and do not duplicate metadata in research prose. The homepage bibliography reads the same data through `_includes/bibliography.html`: editing a citation updates both pages. It shows authors, linked title, venue/year, and any status note, without research summaries, figures, or code links. Groups and papers appear in their JSON order, with any preprints first, then journal articles, then the manuscript in preparation. Empty groups are hidden. The six published journal articles are currently numbered 1–6; in-preparation entries are unnumbered. Do not type citation copies or list numbers into `index.html`. New papers need a unique project identifier, a matching include, and an update to the expected publication records in `scripts/check_site.py`. Research figures have display and larger versions; maintain their aspect ratios and retain readable axes and labels. The figure link opens the larger version directly.
+The publication data are JSON; preserve valid quoting and commas. Edit titles, authors, venues, statuses, and paper/code links only in `_data/publications.json`. Author strings allow `<strong>` markup for the site owner's name. The bibliography lists papers in group order and then paper order; empty groups and manuscripts in preparation are hidden. The six published articles are numbered 1–6 automatically. Do not duplicate citations in the research highlights.
+
+Each paper's `project` identifier is stable. The highlight link include (`_includes/research-links.html`) uses `learning` or `quantum` to obtain the main `url` and the link labeled `Research code` from the same publication data. Once published, use the final title, journal details, and DOI as the main URL; arXiv can remain in supplemental links. New publication entries require an update to the expected record in `scripts/check_site.py`.
+
+The highlights follow Talks. Each has two explanatory paragraphs, one figure, and paper/code links. Use `learning_robustness` and `quantum_classification` from `_data/figures.json`; keep scientific scope and experimental settings clear. Captions, source links, alt text, and full-size images are managed there. Historical figure files remain available for previously shared direct image URLs, but are not rendered as extra figures. Contribution lists and other project descriptions belong in the CV rather than on the homepage.
 
 Talks appear directly below the homepage bibliography in the order listed in `_data/talks.json` (newest first). Keep the venue, ISO date, display date, and title current. The optional `url` links the title to its official program; `note` is for brief labels such as an invited seminar.
 
@@ -52,14 +56,14 @@ Voice: follow the learning-theory CV's direct, result-first wording. Use “we�
 
 ## Review and publication
 
-The `content-reorganization` branch contains the local page-consolidation preview. Review it before publishing. The existing live site publishes from `master` at the repository root. The check workflow only builds and validates; it cannot deploy and has read-only permissions. No Pages settings were changed.
+The live site publishes from `master` at the repository root. The check workflow builds and validates with read-only permissions; GitHub Pages performs deployment separately.
 
-To publish future changes, commit any corrections, merge the reviewed branch into `master`, and push `master` to publish through the existing GitHub Pages configuration. Verify the GitHub Pages build, navigation, CV, and figures on the live domain. Do not publish merely to obtain a preview.
+Build and check locally, inspect desktop and mobile layouts, then commit the intended changes and push `master`. Verify both GitHub workflows and the live sections, redirect targets, and CV. Compare the downloaded CV to the supplied PDF when replacing it.
 
 The annotated record in `docs/PROVENANCE.md` identifies the baseline and reference commits. Backup tag: `before-redesign-2026-09-18`. Before publication, preserve that tag remotely with the reviewed changes. To roll back a published squash merge, revert that merge commit and push the revert, retaining history rather than force-pushing.
 
 ## Compatibility and credits
 
-`/publications/` redirects to `/research/`, `/about/` redirects to the homepage, and `/teaching/` redirects to `/cv/`. `/talks/` and `/talkmap.html` redirect directly to `/#talks`; `/cv/` remains. `/resume`, `/resume/`, and `/cv-json/` lead to the CV page; `/year-archive/` leads to Research. The old portrait URL remains available. Removed example posts, fake CV entries, and sample paper/slide PDFs were template content, not the owner's research.
+`/publications/` redirects to `/#publications`, `/about/` to the homepage, and `/talks/` and `/talkmap.html` to `/#talks`. `/research/` redirects to `/#research`; a small local redirect script forwards its `#learning` and `#quantum` fragments to the matching homepage highlights, with all other fragments falling back to `#research`. Without JavaScript, it falls back to the research overview. `/year-archive/` also redirects to `/#research`. `/cv/` remains a compatibility landing page; `/teaching/`, `/resume`, `/resume/`, and `/cv-json/` lead there. The underlying PDF and legacy portrait URLs remain available.
 
 The design is adapted from Hyejin Kim's site and the MIT-licensed Minimal Mistakes theme by Michael Rose and contributors. Source provenance is retained in this repository; the visible design-adaptation credit was removed at the owner's request. Preserve the theme license. Profile icons come from Bootstrap Icons v1.13.1; their MIT license is included in `_includes/profile-links.html`. Research figures belong to their respective paper authors; links identify the source papers. This site contains no comments, analytics, contact-form backend, or externally loaded JavaScript.

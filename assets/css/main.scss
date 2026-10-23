@@ -629,28 +629,6 @@ a:visited { color: #821414; }
 .research-button--primary:visited { color: #fff; }
 .site-footer a:visited { color: #fff; }
 
-/* Full citations live with their project; keep long titles and author lists readable. */
-.publication-citation {
-  border-left: 2px solid $line;
-  padding: .35rem 0 .35rem 1.15rem;
-  margin: 1.35rem 0 1.8rem;
-  overflow-wrap: anywhere;
-}
-.publication-citation p { margin: .35rem 0; font-size: .9rem; }
-.publication-citation .citation-status {
-  color: $cornell-red;
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-.publication-citation .citation-title { font-family: Georgia, serif; font-size: 1.12rem; line-height: 1.45; }
-.citation-title a { color: $ink; text-decoration: underline; text-decoration-color: $line; }
-.earlier-project { margin-top: 2rem; padding-top: 1.6rem; border-top: 1px solid $line; }
-.earlier-project h3 { font-size: 1.4rem; margin: 0 0 .65rem; }
-.earlier-project > p { margin: 0 0 1rem; }
-.earlier-project .publication-citation { margin-bottom: 0; }
-
 /* Compact CV-style bibliography; all rules are scoped to the homepage. */
 .home-bibliography { max-width: 940px; margin: 0 auto 2rem; padding-top: 2rem; border-top: 1px solid $line; }
 .home-bibliography h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.2; margin: 0 0 1.6rem; }
@@ -677,3 +655,10 @@ a:visited { color: #821414; }
  .cv-talk-heading { display: block; }
  .cv-talk-heading time { display: block; color: $muted; font-size: .9rem; }
 }
+
+/* Research highlights follow the compact publication and talk lists. */
+.home-research { max-width: 940px; margin: 3rem auto 2rem; padding-top: 2rem; border-top: 1px solid $line; }
+.home-research > h2 { font-size: clamp(1.8rem, 3.5vw, 2.4rem); line-height: 1.2; margin: 0 0 1.6rem; }
+.research-highlight + .research-highlight { margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid $line; }
+.research-highlight > h3 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.25; margin: 0 0 1.2rem; }
+.research-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; }
