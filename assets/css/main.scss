@@ -540,7 +540,7 @@ a { text-underline-offset: .18em; }
 .research-points strong { color: #16212b; }
 .feature-row { gap: 2.5rem; padding: 3rem 0; }
 .home-section > h2 { margin-bottom: 2.5rem; }
-.paper-figure { background: transparent; margin: 2rem 0; }
+.paper-figure { display: block; background: transparent; margin: 2rem 0; }
 .paper-figure img { display: block; width: 100%; height: auto; background: white; }
 .paper-figure a.figure-enlarge { display: block; padding: 1rem; background: white; border: 1px solid #e9e5df; }
 .paper-figure figcaption { margin-top: .8rem; color: #59636e; font-size: .81rem; line-height: 1.65; }
