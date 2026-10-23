@@ -1,4 +1,3 @@
-
 [
   {
     "id": "preprints",
@@ -11,19 +10,22 @@
     "papers": [
       {
         "year": "2026",
-        "title": "Learning from almost nothing: How neural networks survive heavy input corruption",
+        "title": "Neural networks become centroid classifiers when trained on heavily corrupted inputs",
         "authors": "J. Tahmassebpur, <strong>A. Bhuiyan</strong>, H. Kim, and O. Lesser.",
-        "venue": "Physical Review Research (accepted, 2026).",
-        "note": "arXiv:2606.11319.",
-        "url": "https://arxiv.org/abs/2606.11319",
+        "venue": "Physical Review Research 8, 043088 (2026).",
+        "url": "https://doi.org/10.1103/qkrg-wbbj",
         "project": "learning",
         "links": [
+          {
+            "label": "arXiv",
+            "url": "https://arxiv.org/abs/2606.11319"
+          },
           {
             "label": "Research code",
             "url": "https://github.com/AsadullahBhuiyan/noisy_neural_networks"
           }
         ],
-        "status": "Accepted article"
+        "status": "Published article"
       },
       {
         "year": "2026",

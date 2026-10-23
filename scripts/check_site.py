@@ -57,13 +57,15 @@ pub=research
 expected_projects=['learning','quantum','singular-potentials','periodically-driven','landau-levels','microtubules']
 citations=html[root/'research/index.html'].citations
 check([project for project,status in citations]==expected_projects,'Expected each publication exactly once, in project order')
-check(sum(status=='journal-articles' for project,status in citations)==6,'Expected six accepted or published journal articles')
-check(sum(status=='preprints' for project,status in citations)==0,'Expected no unaccepted preprints')
+check(sum(status=='journal-articles' for project,status in citations)==6,'Expected six published journal articles')
+check(sum(status=='preprints' for project,status in citations)==0,'Expected no preprints')
 check(sum(status=='in-preparation' for project,status in citations)==0,'Expected no manuscripts in preparation')
 check(('learning','journal-articles') in citations,'Learning paper must be in journal articles')
 for content in [home,research]:
  check('under review' not in content.lower(),'Obsolete under-review status')
- check('Physical Review Research (accepted, 2026).' in content,'Missing PRR acceptance status')
+ check('accepted, 2026' not in content and 'Accepted article' not in content,'Obsolete acceptance status')
+ check('Physical Review Research 8, 043088 (2026).' in content,'Missing published learning-paper citation')
+ check('https://doi.org/10.1103/qkrg-wbbj' in content,'Missing published learning-paper DOI')
 check('Selected research' not in home and '<figure' not in home,'Homepage must not repeat research projects')
 check(home.count('class="hero-note hero-intro"')==3,'Expected three homepage bio paragraphs')
 check('class="eyebrow"' not in home,'Homepage should not repeat affiliation eyebrow')
@@ -95,7 +97,7 @@ for group in groups:
   if paper.get('url'):check(paper['url'] in html[root/'index.html'].links,f'Missing homepage paper link: {paper["project"]}')
   for link in ([paper['url']] if paper.get('url') else [])+[link['url'] for link in paper.get('links',[])]:
    check(link in html[root/'research/index.html'].links,f'Missing paper/code link {link}')
-for phrase in ['Learning from almost nothing','Free-Fermion Dynamics','pseudoharmonic oscillator','Schrödinger Cat States','Landau Levels','Microtubule Ensembles']:
+for phrase in ['Neural networks become centroid classifiers','Free-Fermion Dynamics','pseudoharmonic oscillator','Schrödinger Cat States','Landau Levels','Microtubule Ensembles']:
  check(phrase in pub,f'Missing publication: {phrase}')
 check(research.count('<figure')==4,'Expected four flagship figures')
 check(research.count('<h3>My contributions</h3>')==2,'Expected contributions for both flagship projects')
