@@ -50,5 +50,22 @@
       283
     ],
     "sha256": "fb23821c5c3f34e8a7d65e9d9dab2149c02551c185d6a5fcd000aa8684dfcd16"
+  },
+  {
+    "file": "learning-robustness-published",
+    "source_paper": "neural_networks_published",
+    "source_url": "https://journals.aps.org/prresearch/pdf/10.1103/qkrg-wbbj",
+    "figure": 1,
+    "page": 2,
+    "crop_points": [
+      72,
+      66,
+      536,
+      230
+    ],
+    "crop_coordinate_system": "PDF points from top-left; [left, top, right, bottom]",
+    "display_scale": 3,
+    "large_scale": 5,
+    "sha256": "1f37ef0202f12a96f57a713349adae707e5b7803bc101d2039c3e107864626ce"
   }
 ]

@@ -1,15 +1,15 @@
 {
   "learning_robustness": {
     "title": "Learning under input corruption",
-    "image": "/assets/images/research/learning-robustness.png",
-    "large": "/assets/images/research/learning-robustness-large.png",
-    "width": 1283,
-    "height": 463,
+    "image": "/assets/images/research/learning-robustness-published.png",
+    "large": "/assets/images/research/learning-robustness-published-large.png",
+    "width": 1392,
+    "height": 492,
     "number": 1,
-    "source": "https://arxiv.org/abs/2606.11319",
-    "alt": "Test accuracy for MNIST, Fashion-MNIST, and KMNIST as training pixel-replacement noise increases, with example corrupted images below each plot.",
+    "source": "https://doi.org/10.1103/qkrg-wbbj",
+    "alt": "Test accuracy versus training-image corruption for MNIST, Fashion-MNIST, and KMNIST: blue network results, red dashed centroid-classifier baselines, dotted chance levels, and example corrupted images.",
     "short": "Neural networks retain substantial predictive power well above chance, even when trained on heavily corrupted images.",
-    "caption": "Width-128, three-layer ReLU networks trained with cross-entropy on corrupted inputs and intact labels, evaluated on clean test images. The curves average 100 noisy training realizations; shaded bands show one standard deviation. Dashed lines mark chance accuracy."
+    "caption": "Width-128, three-layer ReLU networks trained with cross-entropy on corrupted inputs and intact labels, evaluated on clean test images. Blue curves average 100 noisy training realizations; shaded bands show one standard deviation. Red dashed lines give centroid-classifier accuracy on clean data, while dotted lines mark chance accuracy."
   },
   "learning_theory": {
     "title": "Testing the high-noise centroid theory",

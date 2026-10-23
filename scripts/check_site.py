@@ -75,7 +75,7 @@ check(home.count('class="research-highlight"')==2,'Expected two research highlig
 for heading in ['Analytic theory of neural-network learning under input corruption','Topology and entropy in monitored quantum dynamics']:
  check(heading in home,f'Missing highlight heading: {heading}')
 check('high-noise, infinite-width limit' in home,'Missing scope of learning result')
-for figure in ['learning-robustness.png','quantum-classification.png']:
+for figure in ['learning-robustness-published.png','quantum-classification.png']:
  check(any(i.get('src','').endswith(figure) for i in page.images),f'Missing highlight figure {figure}')
 for figure in ['learning-theory.png','quantum-protocol.png']:
  check(not any(i.get('src','').endswith(figure) for i in page.images),f'Unexpected extra figure {figure}')
